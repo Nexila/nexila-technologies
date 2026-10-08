@@ -47,26 +47,39 @@ const AREAS = [
   "Siruseri",
 ];
 
+import rw1 from "../assets/images/about/rw1.mp4";
+import rw2 from "../assets/images/about/rw2.mp4";
+import rw3 from "../assets/images/about/rw5.mp4";
+import rw4 from "../assets/images/about/rw4.mp4";
+
+import rt1 from "../assets/images/about/rt1.jpeg";
+import rt2 from "../assets/images/about/rt2.jpeg";
+import rt5 from "../assets/images/about/rt5.jpeg";
+import rt4 from "../assets/images/about/rt4.jpeg";
 const VIDS = [
   {
-    e: "🧑‍💻",
-    n: "Student name",
-    c: "Full Stack Development",
+    video: rw1,
+    e: rt1,
+    n: "Aswin Jino",
+    c: "Data Science",
   },
   {
-    e: "📊",
-    n: "Student name",
-    c: "Data Analytics",
+    video: rw2,
+    e: rt2,
+    n: "Shalini",
+    c: "AI ML",
   },
   {
-    e: "☁️",
-    n: "Student name",
-    c: "AWS with DevOps",
+    video: rw3,
+    e: rt5,
+    n: "Subiksha",
+    c: "Full Stack Web Development",
   },
   {
-    e: "🧪",
-    n: "Student name",
-    c: "Software Testing",
+    video: rw4,
+    e: rt4,
+    n: "Latika",
+    c: "Frontend Development",
   },
 ];
 
@@ -148,18 +161,18 @@ function Testimonials() {
               "--g": "linear-gradient(150deg,#1d4ed8,#0B1B3A)",
             }}
           >
-            <div className="sc">{current.e}</div>
-
-            <button className="play" onClick={() => alert("Video coming soon")}>
-              ▶
-            </button>
+            <video
+              key={current.video}
+              className="testimonial-video"
+              src={current.video}
+              controls
+              playsInline
+            />
 
             <div className="cap">
               <b>{current.n}</b>
               <span>{current.c}</span>
             </div>
-
-            <div className="soon">Video coming soon</div>
           </div>
 
           <div className="tl">
@@ -173,7 +186,12 @@ function Testimonials() {
                 }}
               >
                 <span className="th">
-                  {item.e}
+                  <img
+                    src={item.e}
+                    alt={item.n}
+                    className="testimonial-thumbnail"
+                  />
+
                   <i>▶ Watch</i>
                 </span>
 
