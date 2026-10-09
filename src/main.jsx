@@ -10,15 +10,22 @@ import Contact from "./pages/Contact";
 
 import "./pages/Home.css";
 
+import CoursesPage from "./components/courses/CoursesPage";
+import CourseDetail from "./components/courses/CourseDetail";
+
+// Add these routes inside your existing <Routes>.
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/nexila-hackathon" element={<Hackathon />} />
-        <Route path="/nexila-internship" element={<Internship />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/nexila-hackathon-2026" element={<Hackathon />} />
+        <Route path="/it-internship-for-students-tambaram-chennai" element={<Internship />} />
+        <Route path="/about-us" element={<About />} />
+        <Route path="/contact-us" element={<Contact />} />
+        <Route path="/courses" element={<CoursesPage />} />
+        <Route path="/courses/:slug" element={<CourseDetail />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

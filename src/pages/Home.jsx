@@ -342,13 +342,14 @@ export function Header({ route }) {
 
   const L = [
     ["Home", "#"],
-    ["About", "/about"],
-    ["Courses", "#/courses"],
+    ["About", "/about-us"],
+    ["Courses", "/courses"],
     ["Placements", "#placements"],
-    ["Internship", "/nexila-internship"],
-    ["Hackathon", "/nexila-hackathon"],
+    ["Internship", "/it-internship-for-students-tambaram-chennai"],
+    ["Hackathon", "/nexila-hackathon-2026"],
+    // ["Blog", "https://www.nexilatechnologies.com/author/admin_nexila/"],
     ["Blog", "/"],
-    ["Contact", "/contact"],
+    ["Contact", "/contact-us"],
   ];
   const click = (e, n, h) => {
     setO(false);
@@ -374,7 +375,7 @@ export function Header({ route }) {
     if (
       n === "Home" ||
       // n === "About" ||
-      n === "Courses" ||
+      // n === "Courses" ||
       n === "Placements"
       // ||
       // n === "Contact"
@@ -387,9 +388,10 @@ export function Header({ route }) {
       // else if (n === "About") {
       //   window.location.href = "/#/about";
       // }
-      else if (n === "Courses") {
-        window.location.href = "/#/courses";
-      } else if (n === "Placements") {
+      // else if (n === "Courses") {
+      //   window.location.href = "/#/courses";
+      // }
+      else if (n === "Placements") {
         window.location.href = "/#placements";
       }
       // else if (n === "Contact") {
@@ -1825,22 +1827,9 @@ export function Footer() {
           <div>
             <h3>Company</h3>
 
-            <a href="/about">About</a>
+            <a href="/about-us">About</a>
 
-            <a
-              href="#/courses"
-              onClick={(e) => {
-                e.preventDefault();
-
-                if (window.location.pathname === "/") {
-                  go(e, "courses");
-                } else {
-                  window.location.href = "/#/courses";
-                }
-              }}
-            >
-              Courses
-            </a>
+            <a href="/courses">Courses</a>
 
             <a
               href="#reviews"
@@ -1857,44 +1846,21 @@ export function Footer() {
               Reviews
             </a>
 
-            <a
-              href="https://www.nexilatechnologies.com/author/admin_nexila/"
-              target="_blank"
-              rel="noopener"
-            >
-              Blog
-            </a>
+            <a href="/">Blog</a>
           </div>
 
           <div>
             <h3>Programs</h3>
 
-            <a
-              href="#/courses/mern"
-              onClick={(e) => {
-                e.preventDefault();
+            <a href="/courses/mern">Full Stack</a>
 
-                if (window.location.pathname === "/") {
-                  go(e, "course", null, "mern");
-                } else {
-                  window.location.href = "/#/courses/mern";
-                }
-              }}
-            >
-              Full Stack
+            <a href="/it-internship-for-students-tambaram-chennai">
+              Internship
             </a>
 
-            <a href="/nexila-internship">Internship</a>
+            <a href="/nexila-hackathon-2026">Hackathon 2026</a>
 
-            <a href="/nexila-hackathon">Hackathon 2026</a>
-
-            <a
-              href="https://www.nexilatechnologies.com/corporate-training/"
-              target="_blank"
-              rel="noopener"
-            >
-              Corporate Training
-            </a>
+            <a href="/">Corporate Training</a>
           </div>
           <div>
             <h3>Get in touch</h3>
