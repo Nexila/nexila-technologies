@@ -67,64 +67,283 @@ const SEO = {
   // Course SEO entries. Keep each course's exact SEO URL here.
   "/courses/java": {
     title: "Java Training in Tambaram, Chennai | Nexila",
-    description:
-      "Java training in Tambaram, Chennai. Learn to code with hands-on practice, expert trainers, projects and career support. Classroom and live online.",
-    keywords:
-      "Java course in Chennai, Java training institute Chennai, best Java training in Tambaram, Java online course, programming course",
+    description: "Java training in Tambaram, Chennai. Learn to code with hands-on practice, with expert trainers, projects and career support. Classroom and live online. Book a free demo.",
+    keywords: "Java course in Chennai, Java training institute Chennai, best Java training in Tambaram, Java online course, programming course",
     ogTitle: "Java Training",
     type: "Course",
   },
 
   "/courses/python-course": {
     title: "Python Training in Tambaram, Chennai | Nexila",
-    description:
-      "Python training in Tambaram, Chennai. Learn to code with hands-on practice, expert trainers, projects and career support. Classroom and live online.",
-    keywords:
-      "Python course in Chennai, Python training institute Chennai, best Python training in Tambaram, Python online course, programming course",
+    description: "Python training in Tambaram, Chennai. Learn to code with hands-on practice, with expert trainers, projects and career support. Classroom and live online. Book a free demo.",
+    keywords: "Python course in Chennai, Python training institute Chennai, best Python training in Tambaram, Python online course, programming course",
     ogTitle: "Python Training",
     type: "Course",
   },
 
   "/courses/aws-certification-training": {
     title: "AWS Training & Certification in Tambaram, Chennai | Nexila",
-    description:
-      "AWS Training & Certification training in Tambaram, Chennai. Hands-on cloud skills for modern IT roles, with expert trainers, projects and career support.",
-    keywords:
-      "AWS Training & Certification course in Chennai, AWS training institute Chennai, AWS training in Tambaram, AWS online course, cloud computing course",
+    description: "AWS Training & Certification training in Tambaram, Chennai. Hands-on cloud skills for modern IT roles, with expert trainers, projects and career support.",
+    keywords: "AWS Training & Certification course in Chennai, AWS Training & Certification training institute Chennai, best AWS Training & Certification training in Tambaram, AWS Training & Certification online course, cloud computing course",
     ogTitle: "AWS Training & Certification",
     type: "Course",
   },
 
   "/courses/aws-devops": {
     title: "AWS with DevOps Training in Tambaram, Chennai | Nexila",
-    description:
-      "AWS with DevOps training in Tambaram, Chennai. Hands-on cloud skills for modern IT roles, with expert trainers, projects and career support.",
-    keywords:
-      "AWS with DevOps course in Chennai, AWS with DevOps training institute Chennai, AWS with DevOps training in Tambaram, AWS with DevOps online course, cloud computing course",
+    description: "AWS with DevOps training in Tambaram, Chennai. Hands-on cloud skills for modern IT roles, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "AWS with DevOps course in Chennai, AWS with DevOps training institute Chennai, best AWS with DevOps training in Tambaram, AWS with DevOps online course, cloud computing course",
     ogTitle: "AWS with DevOps Training",
     type: "Course",
   },
 
   "/courses/azure": {
     title: "Azure Training in Tambaram, Chennai | Nexila",
-    description:
-      "Azure training in Tambaram, Chennai. Hands-on cloud skills for modern IT roles, with expert trainers, projects and career support. Classroom and live online.",
-    keywords:
-      "Azure course in Chennai, Azure training institute Chennai, best Azure training in Tambaram, Azure online course, cloud computing course",
+    description: "Azure training in Tambaram, Chennai. Hands-on cloud skills for modern IT roles, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "Azure course in Chennai, Azure training institute Chennai, best Azure training in Tambaram, Azure online course, cloud computing course",
     ogTitle: "Azure Training",
+    type: "Course",
+  },
+
+  "/courses/gcp": {
+    title: "Google Cloud Platform (GCP) Training in Tambaram | Nexila",
+    description: "Google Cloud Platform (GCP) training in Tambaram, Chennai. Hands-on cloud skills for modern IT roles, with expert trainers, projects and career support.",
+    keywords: "Google Cloud Platform (GCP) course in Chennai, Google Cloud Platform (GCP) training institute Chennai, best Google Cloud Platform (GCP) training in Tambaram, Google Cloud Platform (GCP) online course, cloud computing course",
+    ogTitle: "Google Cloud Platform (GCP) Training",
+    type: "Course",
+  },
+
+  "/courses/selenium": {
+    title: "Selenium Training in Tambaram, Chennai | Nexila",
+    description: "Selenium training in Tambaram, Chennai. Manual and automation testing skills, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "Selenium course in Chennai, Selenium training institute Chennai, best Selenium training in Tambaram, Selenium online course, software testing course",
+    ogTitle: "Selenium Training",
+    type: "Course",
+  },
+
+  "/courses/soapui": {
+    title: "SoapUI Training in Tambaram, Chennai | Nexila",
+    description: "SoapUI training in Tambaram, Chennai. Manual and automation testing skills, with expert trainers, projects and career support. Classroom and live online. Book a free demo.",
+    keywords: "SoapUI course in Chennai, SoapUI training institute Chennai, best SoapUI training in Tambaram, SoapUI online course, software testing course",
+    ogTitle: "SoapUI Training",
+    type: "Course",
+  },
+
+  "/courses/manual-testing": {
+    title: "Manual Testing Training in Tambaram, Chennai | Nexila",
+    description: "Manual Testing training in Tambaram, Chennai. Manual and automation testing skills, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "Manual Testing course in Chennai, Manual Testing training institute Chennai, best Manual Testing training in Tambaram, Manual Testing online course, software testing course",
+    ogTitle: "Manual Testing Training",
+    type: "Course",
+  },
+
+  "/courses/mobile-testing": {
+    title: "Mobile Application Testing Training in Tambaram | Nexila",
+    description: "Mobile Application Testing training in Tambaram, Chennai. Manual and automation testing skills, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "Mobile Application Testing course in Chennai, Mobile Application Testing training institute Chennai, best Mobile Application Testing training in Tambaram, Mobile Application Testing online course, software testing course",
+    ogTitle: "Mobile Application Testing Training",
+    type: "Course",
+  },
+
+  "/courses/oracle": {
+    title: "Oracle Training in Tambaram, Chennai | Nexila",
+    description: "Oracle training in Tambaram, Chennai. Practical database design and development skills, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "Oracle course in Chennai, Oracle training institute Chennai, best Oracle training in Tambaram, Oracle online course, database course",
+    ogTitle: "Oracle Training",
+    type: "Course",
+  },
+
+  "/courses/mysql": {
+    title: "MySQL Training in Tambaram, Chennai | Nexila",
+    description: "MySQL training in Tambaram, Chennai. Practical database design and development skills, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "MySQL course in Chennai, MySQL training institute Chennai, best MySQL training in Tambaram, MySQL online course, database course",
+    ogTitle: "MySQL Training",
+    type: "Course",
+  },
+
+  "/courses/mongodb": {
+    title: "MongoDB Training in Tambaram, Chennai | Nexila",
+    description: "MongoDB training in Tambaram, Chennai. Practical database design and development skills, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "MongoDB course in Chennai, MongoDB training institute Chennai, best MongoDB training in Tambaram, MongoDB online course, database course",
+    ogTitle: "MongoDB Training",
+    type: "Course",
+  },
+
+  "/courses/data-analytics-training": {
+    title: "Data Analytics Training in Tambaram, Chennai | Nexila",
+    description: "Data Analytics training in Tambaram, Chennai. Turn data into insights with practical projects, expert trainers and career support. Classroom and live online.",
+    keywords: "Data Analytics course in Chennai, Data Analytics training institute Chennai, best Data Analytics training in Tambaram, Data Analytics online course, data analytics course",
+    ogTitle: "Data Analytics Training",
+    type: "Course",
+  },
+
+  "/courses/data-science": {
+    title: "Data Science Training in Tambaram, Chennai | Nexila",
+    description: "Data Science training in Tambaram, Chennai. Turn data into insights with practical projects, expert trainers and career support. Classroom and live online.",
+    keywords: "Data Science course in Chennai, Data Science training institute Chennai, best Data Science training in Tambaram, Data Science online course, data analytics course",
+    ogTitle: "Data Science Training",
+    type: "Course",
+  },
+
+  "/courses/tableau": {
+    title: "Tableau Training in Tambaram, Chennai | Nexila",
+    description: "Tableau training in Tambaram, Chennai. Turn data into insights with practical projects, expert trainers and career support. Classroom and live online.",
+    keywords: "Tableau course in Chennai, Tableau training institute Chennai, best Tableau training in Tambaram, Tableau online course, data analytics course",
+    ogTitle: "Tableau Training",
+    type: "Course",
+  },
+
+  "/courses/power-bi": {
+    title: "Power BI Training in Tambaram, Chennai | Nexila",
+    description: "Power BI training in Tambaram, Chennai. Turn data into insights with practical projects, expert trainers and career support. Classroom and live online.",
+    keywords: "Power BI course in Chennai, Power BI training institute Chennai, best Power BI training in Tambaram, Power BI online course, data analytics course",
+    ogTitle: "Power BI Training",
+    type: "Course",
+  },
+
+  "/courses/android-os": {
+    title: "Android Training in Tambaram, Chennai | Nexila",
+    description: "Android training in Tambaram, Chennai. Build real mobile applications, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "Android course in Chennai, Android training institute Chennai, best Android training in Tambaram, Android online course, mobile app development course",
+    ogTitle: "Android Training",
+    type: "Course",
+  },
+
+  "/courses/ios": {
+    title: "iOS Training in Tambaram, Chennai | Nexila",
+    description: "iOS training in Tambaram, Chennai. Build real mobile applications, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "iOS course in Chennai, iOS training institute Chennai, best iOS training in Tambaram, iOS online course, mobile app development course",
+    ogTitle: "iOS Training",
     type: "Course",
   },
 
   "/courses/mern-full-stack-training": {
     title: "MERN Full Stack Training in Tambaram, Chennai | Nexila",
-    description:
-      "MERN Full Stack training in Tambaram, Chennai: MongoDB, Express.js, React, Node.js. 120 days, 90 hours, real projects, completion certificate. Free demo.",
-    keywords:
-      "MERN Full Stack course in Chennai, MERN Full Stack training institute Chennai, best MERN Full Stack training in Tambaram, MERN Full Stack online course, full stack developer course",
+    description: "MERN Full Stack training in Tambaram, Chennai: MongoDB, Express.js, React, Node.js. 120 days, 90 hours, real projects, completion certificate. Free demo.",
+    keywords: "MERN Full Stack course in Chennai, MERN Full Stack training institute Chennai, best MERN Full Stack training in Tambaram, MERN Full Stack online course, full stack developer course",
     ogTitle: "MERN Full Stack Training",
     type: "Course",
   },
 
+  "/courses/mean-full-stack-training": {
+    title: "MEAN Full Stack Training in Tambaram, Chennai | Nexila",
+    description: "MEAN Full Stack training in Tambaram, Chennai. Build complete applications front to back, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "MEAN Full Stack course in Chennai, MEAN Full Stack training institute Chennai, best MEAN Full Stack training in Tambaram, MEAN Full Stack online course, full stack developer course",
+    ogTitle: "MEAN Full Stack Training",
+    type: "Course",
+  },
+
+  "/courses/java-full-stack": {
+    title: "Java Full Stack Training in Tambaram, Chennai | Nexila",
+    description: "Java Full Stack training in Tambaram, Chennai. Build complete applications front to back, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "Java Full Stack course in Chennai, Java Full Stack training institute Chennai, best Java Full Stack training in Tambaram, Java Full Stack online course, full stack developer course",
+    ogTitle: "Java Full Stack Training",
+    type: "Course",
+  },
+
+  "/courses/python-full-stack": {
+    title: "Python Full Stack Training in Tambaram, Chennai | Nexila",
+    description: "Python Full Stack training in Tambaram, Chennai. Build complete applications front to back, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "Python Full Stack course in Chennai, Python Full Stack training institute Chennai, best Python Full Stack training in Tambaram, Python Full Stack online course, full stack developer course",
+    ogTitle: "Python Full Stack Training",
+    type: "Course",
+  },
+
+  "/courses/ui-path-rpa": {
+    title: "UiPath Training in Tambaram, Chennai | Nexila",
+    description: "UiPath training in Tambaram, Chennai. Automate business processes with software robots, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "UiPath course in Chennai, UiPath training institute Chennai, best UiPath training in Tambaram, UiPath online course, RPA course",
+    ogTitle: "UiPath Training",
+    type: "Course",
+  },
+
+  "/courses/blue-prism-rpa": {
+    title: "Blue Prism Training in Tambaram, Chennai | Nexila",
+    description: "Blue Prism training in Tambaram, Chennai. Automate business processes with software robots, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "Blue Prism course in Chennai, Blue Prism training institute Chennai, best Blue Prism training in Tambaram, Blue Prism online course, RPA course",
+    ogTitle: "Blue Prism Training",
+    type: "Course",
+  },
+
+  "/courses/openspan": {
+    title: "OpenSpan Training in Tambaram, Chennai | Nexila",
+    description: "OpenSpan training in Tambaram, Chennai. Automate business processes with software robots, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "OpenSpan course in Chennai, OpenSpan training institute Chennai, best OpenSpan training in Tambaram, OpenSpan online course, RPA course",
+    ogTitle: "OpenSpan Training",
+    type: "Course",
+  },
+
+  "/courses/automation-anywhere-rpa": {
+    title: "Automation Anywhere Training in Tambaram, Chennai | Nexila",
+    description: "Automation Anywhere training in Tambaram, Chennai. Automate business processes with software robots, with expert trainers, projects and career support.",
+    keywords: "Automation Anywhere course in Chennai, Automation Anywhere training institute Chennai, best Automation Anywhere training in Tambaram, Automation Anywhere online course, RPA course",
+    ogTitle: "Automation Anywhere Training",
+    type: "Course",
+  },
+
+  "/courses/web-development": {
+    title: "Web Development Training in Tambaram, Chennai | Nexila",
+    description: "Web Development training in Tambaram, Chennai. Build modern, responsive websites, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "Web Development course in Chennai, Web Development training institute Chennai, best Web Development training in Tambaram, Web Development online course, web designing course",
+    ogTitle: "Web Development Training",
+    type: "Course",
+  },
+
+  "/courses/angular-js": {
+    title: "Angular JS Training in Tambaram, Chennai | Nexila",
+    description: "Angular JS training in Tambaram, Chennai. Build modern, responsive websites, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "Angular JS course in Chennai, Angular JS training institute Chennai, best Angular JS training in Tambaram, Angular JS online course, web designing course",
+    ogTitle: "Angular JS Training",
+    type: "Course",
+  },
+
+  "/courses/react-js": {
+    title: "React JS Training in Tambaram, Chennai | Nexila",
+    description: "React JS training in Tambaram, Chennai. Build modern, responsive websites, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "React JS course in Chennai, React JS training institute Chennai, best React JS training in Tambaram, React JS online course, web designing course",
+    ogTitle: "React JS Training",
+    type: "Course",
+  },
+
+  "/courses/frontend-development": {
+    title: "Front-End Development Training in Tambaram, Chennai | Nexila",
+    description: "Front-End Development training in Tambaram, Chennai. Build modern, responsive websites, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "Front-End Development course in Chennai, Front-End Development training institute Chennai, best Front-End Development training in Tambaram, Front-End Development online course, web designing course",
+    ogTitle: "Front-End Development Training",
+    type: "Course",
+  },
+
+  "/courses/artificial-intelligence": {
+    title: "Artificial Intelligence Training in Tambaram | Nexila",
+    description: "Artificial Intelligence training in Tambaram, Chennai. Practical, industry-relevant skills, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "Artificial Intelligence course in Chennai, Artificial Intelligence training institute Chennai, best Artificial Intelligence training in Tambaram, Artificial Intelligence online course, IT course",
+    ogTitle: "Artificial Intelligence Training",
+    type: "Course",
+  },
+
+  "/courses/matlab": {
+    title: "MATLAB Training in Tambaram, Chennai | Nexila",
+    description: "MATLAB training in Tambaram, Chennai. Practical, industry-relevant skills, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "MATLAB course in Chennai, MATLAB training institute Chennai, best MATLAB training in Tambaram, MATLAB online course, IT course",
+    ogTitle: "MATLAB Training",
+    type: "Course",
+  },
+
+  "/courses/informatica": {
+    title: "Informatica Training in Tambaram, Chennai | Nexila",
+    description: "Informatica training in Tambaram, Chennai. Practical, industry-relevant skills, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: "Informatica course in Chennai, Informatica training institute Chennai, best Informatica training in Tambaram, Informatica online course, IT course",
+    ogTitle: "Informatica Training",
+    type: "Course",
+  },
+
+  "/courses/net-course": {
+    title: ".NET Training in Tambaram, Chennai | Nexila",
+    description: ".NET training in Tambaram, Chennai. Practical, industry-relevant skills, with expert trainers, projects and career support. Classroom and live online.",
+    keywords: ".NET course in Chennai, .NET training institute Chennai, best .NET training in Tambaram, .NET online course, IT course",
+    ogTitle: ".NET Training",
+    type: "Course",
+  },
   // Add the remaining course entries from your SEO spreadsheet here.
 };
 
