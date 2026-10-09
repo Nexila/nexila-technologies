@@ -1852,7 +1852,7 @@ export function Footer() {
           <div>
             <h3>Programs</h3>
 
-            <a href="/courses/mern">Full Stack</a>
+            <a href="/courses/mern-full-stack-training">Full Stack</a>
 
             <a href="/it-internship-for-students-tambaram-chennai">
               Internship
@@ -1860,7 +1860,7 @@ export function Footer() {
 
             <a href="/nexila-hackathon-2026">Hackathon 2026</a>
 
-            <a href="/">Corporate Training</a>
+            <a href="/courses">Corporate Training</a>
           </div>
           <div>
             <h3>Get in touch</h3>
