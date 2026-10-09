@@ -115,13 +115,17 @@ export const CBLURB = [
 
 
 export const COURSELIST = [
-  [0, "java", "Java"],
-  [0, "python-course", "Python"],
+  [0, "java-course", "Java"],
+  [
+    0,
+    "python-course-training-institute-in-tambaram-with-placement-your-pathway-to-success-with-nexila-technologies/",
+    "Python",
+  ],
   [1, "aws-certification-training", "AWS Training & Certification"],
-  [1, "aws-devops", "AWS with DevOps"],
+  [1, "aws-devops-training-tambaram-chennai", "AWS with DevOps"],
   [1, "azure", "Azure"],
   [1, "gcp", "Google Cloud Platform (GCP)"],
-  [2, "selenium", "Selenium Testiing"],
+  [2, "selenium", "Selenium Testing"],
   [2, "soapui", "SoapUI"],
   [2, "manual-testing", "Manual Testing"],
   [2, "mobile-testing", "Mobile Application Testing"],
