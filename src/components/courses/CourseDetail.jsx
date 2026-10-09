@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import { useLocation } from "react-router-dom";
 import "./Courses.css";
 import {
   CCATS,
@@ -28,6 +31,16 @@ export default function CourseDetail() {
 
   const [open, setOpen] = useState(0);
   const [tab, setTab] = useState("about");
+
+  const location = useLocation();
+
+useEffect(() => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "instant",
+  });
+}, [location.pathname]);
 
   const course = COURSELIST.find((item) => item.slug === slug);
 
@@ -389,7 +402,7 @@ export default function CourseDetail() {
             <h2 className="h2">You may also like</h2>
           </div>
 
-          <div className="grid g4">
+          <div className="grid g4" >
             {related.map((item) => (
               <CourseCard key={item.slug} c={item} />
             ))}
