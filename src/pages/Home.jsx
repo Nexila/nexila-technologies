@@ -347,7 +347,7 @@ export function Header({ route }) {
     ["Placements", "#placements"],
     ["Internship", "/nexila-internship"],
     ["Hackathon", "/nexila-hackathon"],
-    ["Blog", "https://www.nexilatechnologies.com/author/admin_nexila/"],
+    ["Blog", "/"],
     ["Contact", "/contact"],
   ];
   const click = (e, n, h) => {
