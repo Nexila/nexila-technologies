@@ -118,7 +118,7 @@ export const COURSELIST = [
   [0, "java-course", "Java"],
   [
     0,
-    "python-course-training-institute-in-tambaram-with-placement-your-pathway-to-success-with-nexila-technologies/",
+    "python-course-training-institute-in-tambaram-with-placement-your-pathway-to-success-with-nexila-technologies",
     "Python",
   ],
   [1, "aws-certification-training", "AWS Training & Certification"],
