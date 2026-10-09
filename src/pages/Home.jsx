@@ -639,9 +639,9 @@ function Courses() {
               </div>
 
               <a
-                href={"#/courses/" + SLUG[x.t]}
+                href={"/courses/" + SLUG[x.t]}
                 className="lnk"
-                onClick={(e) => go(e, "course", null, SLUG[x.t])}
+            
               >
                 View course →
               </a>
@@ -656,9 +656,9 @@ function Courses() {
           }}
         >
           <a
-            href="#/courses"
+            href="/courses"
             className="btn outl"
-            onClick={(e) => go(e, "courses")}
+      
           >
             View all courses →
           </a>
