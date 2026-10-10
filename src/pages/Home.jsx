@@ -474,7 +474,7 @@ export function Header({ route }) {
             </a>
           ))}
 
-          <a
+          {/* <a
             href="#contact"
             onClick={(e) => {
               setO(false);
@@ -484,7 +484,28 @@ export function Header({ route }) {
             style={{ padding: "9px 18px" }}
           >
             Enroll Now!
-          </a>
+          </a> */}
+          <a
+  href={window.location.pathname === "/nexila-hackathon-2026"
+    ? "#register"
+    : "#contact"}
+  onClick={(e) => {
+    setO(false);
+
+    if (window.location.pathname === "/nexila-hackathon-2026") {
+      e.preventDefault();
+      document.getElementById("register")?.scrollIntoView({
+        behavior: "smooth",
+      });
+    } else {
+      openDemo(e);
+    }
+  }}
+  className="btn cta"
+  style={{ padding: "9px 18px" }}
+>
+  Enroll Now!
+</a>
         </nav>
       </div>
     </header>
@@ -638,11 +659,7 @@ function Courses() {
                 <span>{x.m}</span>
               </div>
 
-              <a
-                href={"/courses/" + SLUG[x.t]}
-                className="lnk"
-            
-              >
+              <a href={"/courses/" + SLUG[x.t]} className="lnk">
                 View course →
               </a>
             </div>
@@ -655,11 +672,7 @@ function Courses() {
             marginTop: 32,
           }}
         >
-          <a
-            href="/courses"
-            className="btn outl"
-      
-          >
+          <a href="/courses" className="btn outl">
             View all courses →
           </a>
         </div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Header, Footer, Topbar } from "./Home";
+import { DemoPopup } from "../components/courses/CourseData";
 import "./About.css";
 import aboutNexilaLogo from "../assets/images/about/aboutnexilalogo.jpeg";
 
@@ -533,6 +534,7 @@ export default function About() {
       >
         💬 WhatsApp
       </a>
+      <DemoPopup/>
       <Footer />
     </>
   );

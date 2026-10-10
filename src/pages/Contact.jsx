@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Topbar, Header, Footer } from "./Home";
+import { DemoPopup } from "../components/courses/CourseData";
 import "./Contact.css";
 const CONTACT_DETAILS = [
   {
@@ -761,7 +762,7 @@ function Contact() {
       </a>
       {/* FREE CONSULTATION */}
       <Consultation />
-
+      <DemoPopup />
       <Footer />
     </>
   );
