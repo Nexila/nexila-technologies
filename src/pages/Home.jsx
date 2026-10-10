@@ -1325,7 +1325,7 @@ function Hackathon() {
             </p>
 
             <a
-              href="/nexila-hackathon"
+              href="/nexila-hackathon-2026"
               className="btn cta"
               style={{ marginTop: 8 }}
             >
