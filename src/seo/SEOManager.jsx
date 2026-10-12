@@ -344,6 +344,92 @@ const SEO = {
     ogTitle: ".NET Training",
     type: "Course",
   },
+    "/blogs": {
+    title: "Nexila Blog: IT Courses, Career Tips & Tech Guides",
+    description:
+      "Read Nexila's blog for IT course guides, career roadmaps, internship and interview tips, and tech updates from our Tambaram, Chennai training team.",
+    keywords:
+      "IT training blog, IT career advice, software course guides, internship tips for students, programming roadmaps, interview preparation, tech updates Chennai",
+    ogTitle: "Nexila Blog: IT Courses, Career Tips & Tech Guides",
+    type: "website",
+  },
+
+  // Blog 1: AI in Software Testing
+  "/blogs/ai-in-software-testing-skills-testers-need": {
+    title: "How AI Is Changing Software Testing | Nexila Blog",
+    description:
+      "See how AI is changing software testing, from self-healing scripts to test generation, and the skills testers should build to stay job-ready.",
+    keywords:
+      "AI in software testing, self-healing test scripts, automation testing course in Chennai, AI testing tools, software testing skills",
+    ogTitle: "How AI Is Changing Software Testing | Nexila Blog",
+    type: "BlogPosting",
+  },
+
+  // Blog 2: AWS vs Azure vs GCP
+  "/blogs/aws-vs-azure-vs-gcp-which-cloud-course-to-start": {
+    title: "AWS vs Azure vs GCP: Which Course to Start | Nexila",
+    description:
+      "Compare AWS, Azure and GCP for beginners, what each is known for, and how to choose your first cloud course based on your goals and background.",
+    keywords:
+      "AWS vs Azure vs GCP, best cloud computing course, cloud course for beginners, AWS training in Chennai, cloud computing career",
+    ogTitle: "AWS vs Azure vs GCP: Which Course to Start | Nexila",
+    type: "BlogPosting",
+  },
+
+  // Blog 3: Choosing the Right IT Course
+  "/blogs/how-to-choose-the-right-it-course-after-graduation": {
+    title: "How to Choose the Right IT Course | Nexila Blog",
+    description:
+      "Not sure which IT course to pick? Use this practical guide to match your interests, background and goals with the right software training path.",
+    keywords:
+      "how to choose an IT course, best IT course after graduation, IT courses in Chennai, career guidance for graduates, software training institute Tambaram",
+    ogTitle: "How to Choose the Right IT Course | Nexila Blog",
+    type: "BlogPosting",
+  },
+
+  // Blog 4: College Hackathon
+  "/blogs/how-to-prepare-for-a-college-hackathon": {
+    title: "How to Prepare for a College Hackathon | Nexila Blog",
+    description:
+      "Preparing for a hackathon? Learn how to form a team, pick an idea, divide work and present your project, with tips for AI and programming themes.",
+    keywords:
+      "college hackathon tips, how to prepare for a hackathon, hackathon for students in Tamil Nadu, hackathon project ideas, AI hackathon",
+    ogTitle: "How to Prepare for a College Hackathon | Nexila Blog",
+    type: "BlogPosting",
+  },
+
+  // Blog 5: IT Internship
+  "/blogs/it-internship-in-chennai-tips-for-college-students": {
+    title: "IT Internship in Chennai for Students: Tips | Nexila",
+    description:
+      "Planning an IT internship in Chennai? Learn how to choose one, what to expect and how to turn live project experience into a stronger resume.",
+    keywords:
+      "IT internship in Chennai, internship for college students, software internship in Tambaram, internship projects for students, internship certificate",
+    ogTitle: "IT Internship in Chennai for Students: Tips | Nexila",
+    type: "BlogPosting",
+  },
+
+  // Blog 6: MERN Stack Roadmap
+  "/blogs/mern-stack-developer-roadmap-for-beginners": {
+    title: "MERN Stack Developer Roadmap for Beginners | Nexila",
+    description:
+      "A step-by-step MERN stack roadmap for beginners: HTML, CSS, JavaScript, React, Node.js, Express and MongoDB, with projects to build along the way.",
+    keywords:
+      "MERN stack roadmap, MERN stack developer for beginners, MERN full stack course in Chennai, learn React and Node.js, full stack developer roadmap",
+    ogTitle: "MERN Stack Developer Roadmap for Beginners | Nexila",
+    type: "BlogPosting",
+  },
+
+  // Blog 7: Python for Beginners
+  "/blogs/python-for-beginners-what-to-learn-first": {
+    title: "Python for Beginners: Where to Start | Nexila Blog",
+    description:
+      "Starting Python? Learn what to study first, which projects to build and how to practise so you can move into automation, data or web development.",
+    keywords:
+      "Python for beginners, learn Python, Python course in Tambaram, Python projects for beginners, Python career paths",
+    ogTitle: "Python for Beginners: Where to Start | Nexila Blog",
+    type: "BlogPosting",
+  },
   // Add the remaining course entries from your SEO spreadsheet here.
 };
 

@@ -10,9 +10,12 @@ import Contact from "./pages/Contact";
 
 import "./pages/Home.css";
 
+import Courses from "./components/courses/Courses";
 import CoursesPage from "./components/courses/CoursesPage";
 import CourseDetail from "./components/courses/CourseDetail";
 import SEOManager from "../src/seo/SEOManager.jsx";
+import Blog from "./components/blog/Blog";
+import BlogPost from "./components/blog/BlogPost";
 // Add these routes inside your existing <Routes>.
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -30,6 +33,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/contact-us" element={<Contact />} />
         <Route path="/courses" element={<CoursesPage />} />
         <Route path="/courses/:slug" element={<CourseDetail />} />
+        <Route path="/blogs" element={<Blog />} />
+        <Route path="/blogs/:slug" element={<BlogPost />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

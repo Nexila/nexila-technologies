@@ -348,7 +348,7 @@ export function Header({ route }) {
     ["Internship", "/it-internship-for-students-tambaram-chennai"],
     ["Hackathon", "/nexila-hackathon-2026"],
     // ["Blog", "https://www.nexilatechnologies.com/author/admin_nexila/"],
-    ["Blog", "/"],
+    ["Blog", "/blogs"],
     ["Contact", "/contact-us"],
   ];
   const click = (e, n, h) => {
@@ -486,26 +486,28 @@ export function Header({ route }) {
             Enroll Now!
           </a> */}
           <a
-  href={window.location.pathname === "/nexila-hackathon-2026"
-    ? "#register"
-    : "#contact"}
-  onClick={(e) => {
-    setO(false);
+            href={
+              window.location.pathname === "/nexila-hackathon-2026"
+                ? "#register"
+                : "#contact"
+            }
+            onClick={(e) => {
+              setO(false);
 
-    if (window.location.pathname === "/nexila-hackathon-2026") {
-      e.preventDefault();
-      document.getElementById("register")?.scrollIntoView({
-        behavior: "smooth",
-      });
-    } else {
-      openDemo(e);
-    }
-  }}
-  className="btn cta"
-  style={{ padding: "9px 18px" }}
->
-  Enroll Now!
-</a>
+              if (window.location.pathname === "/nexila-hackathon-2026") {
+                e.preventDefault();
+                document.getElementById("register")?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              } else {
+                openDemo(e);
+              }
+            }}
+            className="btn cta"
+            style={{ padding: "9px 18px" }}
+          >
+            Enroll Now!
+          </a>
         </nav>
       </div>
     </header>
@@ -1859,7 +1861,7 @@ export function Footer() {
               Reviews
             </a>
 
-            <a href="/">Blog</a>
+            <a href="/blogs">Blog</a>
           </div>
 
           <div>
