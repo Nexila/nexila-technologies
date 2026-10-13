@@ -497,7 +497,7 @@ export default function EnquiryForm({
 
           <h1>Enquiry Form</h1>
 
-          <p>Fill the form and our team will contact you</p>
+          {/* <p>Fill the form and our team will contact you</p> */}
 
           {/* <div className="nex-enquiry-benefits">
             <div>
