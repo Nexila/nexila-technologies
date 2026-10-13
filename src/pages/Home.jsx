@@ -591,7 +591,7 @@ function Partners() {
       <div className="wrap" style={{ textAlign: "center" }}>
         <div className="tag">Trusted by 100+ hiring partners</div>
 
-        <div className="partners">
+        {/* <div className="partners">
           {[
             "Partner logo",
             "Partner logo",
@@ -603,7 +603,7 @@ function Partners() {
               {p}
             </span>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );

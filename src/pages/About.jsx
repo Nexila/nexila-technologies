@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Header, Footer, Topbar } from "./Home";
 import { DemoPopup } from "../components/courses/CourseData";
 import "./About.css";
-import aboutNexilaLogo from "../assets/images/about/aboutnexilalogo.jpeg";
+import aboutstudentsimg2 from "../assets/images/about/aboutstudentsimg2.jpeg";
 
 /* =========================
    DATA
@@ -79,8 +79,8 @@ const VIDS = [
   {
     video: rw4,
     e: rt4,
-    n: "Latika",
-    c: "Frontend Development",
+    n: "Akilarasi sundar",
+    c: "Data Analytics",
   },
 ];
 
@@ -263,7 +263,7 @@ export default function About() {
 
             <div className="abv">
               <img
-                src={aboutNexilaLogo}
+                src={aboutstudentsimg2}
                 alt="Nexila Technologies"
                 className="about-nexila-image"
               />
@@ -428,7 +428,10 @@ export default function About() {
                   tracks.
                 </p>
 
-                <a href="/nexila-internship" className="lnk">
+                <a
+                  href="/it-internship-for-students-tambaram-chennai"
+                  className="lnk"
+                >
                   Apply now →
                 </a>
               </div>
@@ -445,7 +448,7 @@ export default function About() {
                   programming tracks, ₹50K prize pool.
                 </p>
 
-                <a href="/nexila-hackathon" className="lnk">
+                <a href="/nexila-hackathon-2026" className="lnk">
                   Register now →
                 </a>
               </div>
@@ -534,7 +537,7 @@ export default function About() {
       >
         💬 WhatsApp
       </a>
-      <DemoPopup/>
+      <DemoPopup />
       <Footer />
     </>
   );

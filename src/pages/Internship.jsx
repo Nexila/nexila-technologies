@@ -3,7 +3,7 @@ import { Header, Footer, Topbar } from "./Home";
 import "./Internship.css";
 import its1 from "../assets/images/internship/its1.jpg";
 import its2 from "../assets/images/internship/its2.jpg";
-import its3 from "../assets/images/internship/its3.jpg";
+import its5 from "../assets/images/internship/its5.jpg";
 
 /* ================= INTERNSHIP DATA ================= */
 
@@ -247,7 +247,7 @@ const IPH = [
     l: "Internship photo 2",
   },
   {
-    img: its3,
+    img: its5,
     e: "🧑‍💻",
     l: "Internship photo 3",
   },
