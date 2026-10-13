@@ -16,6 +16,7 @@ import CourseDetail from "./components/courses/CourseDetail";
 import SEOManager from "../src/seo/SEOManager.jsx";
 import Blog from "./components/blog/Blog";
 import BlogPost from "./components/blog/BlogPost";
+import EnquiryForm from "./components/enquiry/EnquiryForm";
 // Add these routes inside your existing <Routes>.
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -35,6 +36,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/courses/:slug" element={<CourseDetail />} />
         <Route path="/blogs" element={<Blog />} />
         <Route path="/blogs/:slug" element={<BlogPost />} />
+        <Route path="/enquiry-form" element={<EnquiryForm />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
