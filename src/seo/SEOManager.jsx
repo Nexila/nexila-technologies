@@ -430,6 +430,16 @@ const SEO = {
     ogTitle: "Python for Beginners: Where to Start | Nexila Blog",
     type: "BlogPosting",
   },
+
+  "/enquiry-form": {
+  title: "Enquiry Form | Nexila Technologies",
+  description:
+    "Get in touch with Nexila Technologies to explore IT courses, internships, project guidance and career-focused training programs.",
+  keywords:
+    "Nexila Technologies enquiry form, IT course enquiry, internship enquiry, project guidance, IT training in Tambaram, Chennai",
+  ogTitle: "Enquiry Form | Nexila Technologies",
+  type: "WebPage",
+},
   // Add the remaining course entries from your SEO spreadsheet here.
 };
 
