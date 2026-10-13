@@ -487,7 +487,7 @@ export default function EnquiryForm({
             <img
               src="/nextextlogo.jpeg"
               alt="Nexila Technologies"
-              style={{ width: "350px", height: "auto", borderRadius: "10px" }}
+              className="nex-enquiry-logo"
             />
           </a>
 
