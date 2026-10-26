@@ -19,6 +19,9 @@ export function InternForm() {
   const [dateofjoin, setDateofjoin] = useState("");
   const [location, setLocation] = useState("");
 
+
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [submittedData, setSubmittedData] = useState(null);
   const PRICING = {
     15: {
       days: "15 days",
@@ -609,13 +612,16 @@ if (!emailRegex.test(email.trim())) {
           result?.message || "Unable to submit your application.",
         );
       }
+setSubmittedData({
+  name: finalName,
+  nexilaID:
+    result?.nexilaID ||
+    result?.lead?.nexilaID ||
+    result?.data?.nexilaID ||
+    "",
+});
 
-      setMessage(
-        result?.message ||
-          "Application submitted successfully. Our team will contact you shortly.",
-      );
-
-      setOk(true);
+setShowSuccess(true);
 
       setName("");
       setPhone("");
@@ -932,6 +938,50 @@ if (!emailRegex.test(email.trim())) {
       >
         {loading ? "Submitting..." : "Submit Form"}
       </button>
+            {showSuccess && submittedData && (
+        <div
+          className="nex-success-overlay"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="nex-success-title"
+        >
+          <div className="nex-success-card">
+            <div className="nex-success-icon">✓</div>
+
+            <span className="nex-enquiry-eyebrow">
+              INTERNSHIP APPLICATION RECEIVED
+            </span>
+
+            <h2 id="nex-success-title">
+              Thank you, {submittedData.name.split(" ")[0]}!
+            </h2>
+
+            <p>
+              Your internship application has been submitted successfully.
+              Our team will contact you with the next steps.
+            </p>
+
+            {submittedData.nexilaID && (
+              <div className="nex-success-reference">
+                <span>Your application reference</span>
+                <strong>{submittedData.nexilaID}</strong>
+              </div>
+            )}
+
+            <button
+              type="button"
+              className="nex-enquiry-submit"
+              onClick={() => {
+                setShowSuccess(false);
+                setSubmittedData(null);
+                setMessage("");
+              }}
+            >
+              Back to Form
+            </button>
+          </div>
+        </div>
+      )}
     </form>
   );
 }
