@@ -84,7 +84,7 @@ export const SLUG = {
   "Data Science & AI": "data-science",
   "Power BI & Tableau": "power-bi",
   "Selenium Testing": "selenium",
-  "Python Programming": "python",
+  "Python Programming": "python-for-beginners-what-to-learn-first",
 };
 
 export const CCATS = [
@@ -118,7 +118,7 @@ export const COURSELIST = [
   [0, "java-course", "Java"],
   [
     0,
-    "python-course-training-institute-in-tambaram-with-placement-your-pathway-to-success-with-nexila-technologies",
+    "python-for-beginners-what-to-learn-first",
     "Python",
   ],
   [1, "aws-certification-training", "AWS Training & Certification"],

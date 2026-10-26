@@ -17,6 +17,8 @@ import SEOManager from "../src/seo/SEOManager.jsx";
 import Blog from "./components/blog/Blog";
 import BlogPost from "./components/blog/BlogPost";
 import EnquiryForm from "./components/enquiry/EnquiryForm";
+
+import InternshipTest from "./pages/test/Internship.jsx";
 // Add these routes inside your existing <Routes>.
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -37,6 +39,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/blogs" element={<Blog />} />
         <Route path="/blogs/:slug" element={<BlogPost />} />
         <Route path="/enquiry-form" element={<EnquiryForm />} />
+        <Route path="/test-internship" element={<InternshipTest />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

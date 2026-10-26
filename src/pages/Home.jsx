@@ -610,14 +610,14 @@ function Partners() {
 }
 
 const SLUG = {
-  "MERN Full Stack": "mern",
+  "MERN Full Stack": "mern-full-stack-training",
   "Java Full Stack": "java-full-stack",
-  "AWS with DevOps": "aws-devops",
+  "AWS with DevOps": "aws-certification-training",
   "Azure Training": "azure",
   "Data Science & AI": "data-science",
   "Power BI & Tableau": "power-bi",
   "Selenium Testing": "selenium",
-  "Python Programming": "python",
+  "Python Programming": "python-for-beginners-what-to-learn-first",
 };
 
 function Courses() {

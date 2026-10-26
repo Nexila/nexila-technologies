@@ -252,11 +252,7 @@ function PhotoSlider({ items, ms = 5000 }) {
           }`}
         >
           {item.img ? (
-            <img
-              src={item.img}
-              alt={item.l}
-              className="hack-photo-image"
-            />
+            <img src={item.img} alt={item.l} className="hack-photo-image" />
           ) : (
             <div className="hack-photo-placeholder">
               <span>{item.e}</span>
@@ -689,7 +685,8 @@ function Consult() {
 
 function HackathonPage() {
   const HACKATHON_INTEREST_API =
-    "https://crm.nexilatechnologies.com/api/hackathon-interest";
+    // "http://localhost:5000/api/hackathon-interest/end";
+  "https://crm.nexilatechnologies.com/api/hackathon-interest/end";
   const [ok, setOk] = useState(false);
 
   const now = Date.now();
