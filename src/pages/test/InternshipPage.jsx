@@ -2,6 +2,23 @@ import { useState } from "react";
 import "./Internship.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+const loadRazorpayScript = () => {
+  return new Promise((resolve) => {
+    if (window.Razorpay) {
+      resolve(true);
+      return;
+    }
+
+    const script = document.createElement("script");
+
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+
+    script.onload = () => resolve(true);
+    script.onerror = () => resolve(false);
+
+    document.body.appendChild(script);
+  });
+};
 export function InternForm() {
   const [ok, setOk] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -19,9 +36,12 @@ export function InternForm() {
   const [dateofjoin, setDateofjoin] = useState("");
   const [location, setLocation] = useState("");
 
-
   const [showSuccess, setShowSuccess] = useState(false);
   const [submittedData, setSubmittedData] = useState(null);
+
+  const [paymentLoading, setPaymentLoading] = useState(false);
+  const [paymentStatus, setPaymentStatus] = useState("PENDING");
+  const [savedLeadId, setSavedLeadId] = useState(null);
   const PRICING = {
     15: {
       days: "15 days",
@@ -61,7 +81,7 @@ export function InternForm() {
       discount: 30,
       discountAmount: 9000,
       amount: 20999,
-      programme: "Course",
+      programme: "Course + Internship + Project",
     },
   };
 
@@ -492,13 +512,15 @@ export function InternForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     setMessage("");
 
     const finalName = name.trim();
     const finalPhone = phone.trim();
     const finalCollege = college.trim();
     const finalGraduate = graduate.trim();
+    const finalEmail = email.trim();
+
+    // ---------------- VALIDATION ----------------
 
     if (!finalName) {
       setMessage("Please enter your name.");
@@ -510,30 +532,28 @@ export function InternForm() {
       return;
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-if (!emailRegex.test(email.trim())) {
-  setMessage("Please enter a valid email address.");
-  return;
-}
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(finalEmail)) {
+      setMessage("Please enter a valid email address.");
+      return;
+    }
 
     if (!finalCollege) {
       setMessage("Please enter your college name.");
       return;
     }
 
+    if (!collegeRegisterId.trim()) {
+      setMessage("Please enter your college register ID.");
+      return;
+    }
+
     if (!GRADUATES.includes(finalGraduate)) {
-      setMessage("Please search and select your graduate from the list.");
+      setMessage("Please select your graduate.");
       return;
     }
 
-    if (!year) {
-      setMessage("Please select your year of studying.");
-      return;
-    }
-
-    if (!domain) {
-      setMessage("Please select your domain.");
+    if (!year || !domain) {
+      setMessage("Please select your year and domain.");
       return;
     }
 
@@ -547,38 +567,55 @@ if (!emailRegex.test(email.trim())) {
       return;
     }
 
-    if (new Date(`${dateofjoin}T00:00:00`).getDay() !== 3) {
+    const joiningDate = new Date(`${dateofjoin}T00:00:00`);
+
+    if (joiningDate.getDay() !== 3) {
       setMessage("Please select a Wednesday.");
       return;
     }
 
+    // Set this in .env for local development or production.
+    // Example: VITE_API_BASE_URL=http://localhost:5000/api
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+      // ||
+      // "https://crm.nexilatechnologies.com/api"
+      .replace(/\/$/, "");
+
+    let leadSaved = false;
+    let applicationDetails = null;
+
     setLoading(true);
+    setPaymentLoading(false);
+    setPaymentStatus("PENDING");
+    setShowSuccess(false);
 
     try {
+      // ---------------- STEP 1: SAVE LEAD ----------------
+
       const crmData = {
         name: finalName,
         phone: finalPhone,
-        email: email.trim(),
+        email: finalEmail,
 
         graduate: finalGraduate,
         category: year,
         domain,
 
-        // Selected plan details
         noofday: selectedPlan.days,
         internshipduration: selectedPlan.days,
+
         fees: selectedPlan.amount,
         feepaid: 0,
         pendingfee: selectedPlan.amount,
 
         lookingfor: selectedPlan.programme,
-
         leadstatus: "New Lead",
-        leadsource: "website",
+        leadsource: "Website",
+
         collegename: finalCollege,
         collegeRegisterId: collegeRegisterId.trim(),
+        location: location.trim(),
 
-        location: location,
         joinstatus: null,
         notes: null,
         remark: null,
@@ -586,24 +623,30 @@ if (!emailRegex.test(email.trim())) {
         dropreason: null,
         followdate: null,
         demodate: null,
-        dateofjoin: dateofjoin
-          ? new Date(`${dateofjoin}T00:00:00`).toISOString()
-          : null,
+
+        dateofjoin: joiningDate.toISOString(),
+
         feetype: null,
         assignfrom: null,
         assignto: null,
+
+        // Initial payment details only.
+        paymentMethod: "RAZORPAY",
+        paymentStatus: "PENDING",
+        paymentReference: null,
+        razorpayOrderId: null,
+        razorpayPaymentId: null,
+        razorpaySignature: null,
+        paidAt: null,
       };
 
-      const response = await fetch(
-        "https://crm.nexilatechnologies.com/api/leads/create-public",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(crmData),
+      const response = await fetch(`${API_BASE_URL}/leads/create-public`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify(crmData),
+      });
 
       const result = await response.json();
 
@@ -612,41 +655,205 @@ if (!emailRegex.test(email.trim())) {
           result?.message || "Unable to submit your application.",
         );
       }
-setSubmittedData({
-  name: finalName,
-  nexilaID:
-    result?.nexilaID ||
-    result?.lead?.nexilaID ||
-    result?.data?.nexilaID ||
-    "",
-});
 
-setShowSuccess(true);
+      const savedLead = result?.data || result?.lead || result;
+      const leadId = savedLead?._id;
+      const nexilaID =
+        savedLead?.nexilaID ||
+        savedLead?.NexilaID ||
+        result?.nexilaID ||
+        result?.NexilaID ||
+        "";
 
-      setName("");
-      setPhone("");
-      setEmail("")
-      setCollege("");
-      setCollegeRegisterId("")
-      setGraduate("");
-      setYear("");
-      setDomain("");
-      setDateofjoin("");
-      setDuration("");
-      setLocation("");
+      if (!leadId) {
+        throw new Error(
+          "The CRM response did not contain a lead ID. Please check your CRM response format.",
+        );
+      }
 
-      setTimeout(() => {
-        setOk(false);
-        setMessage("");
-      }, 6000);
+      leadSaved = true;
+
+      applicationDetails = {
+        name: finalName,
+        nexilaID,
+      };
+
+      setSavedLeadId(leadId);
+      setSubmittedData(applicationDetails);
+
+      // ---------------- STEP 2: LOAD RAZORPAY ----------------
+
+      setLoading(false);
+      setPaymentLoading(true);
+
+      const scriptLoaded = await loadRazorpayScript();
+
+      if (!scriptLoaded) {
+        throw new Error(
+          "Your application is saved, but the payment window could not load.",
+        );
+      }
+
+      // ---------------- STEP 3: CREATE ORDER ----------------
+      // This backend endpoint must create an actual Razorpay order.
+      // The order amount must be calculated/validated by the backend.
+
+      const orderResponse = await fetch(
+        `${API_BASE_URL}/payments/create-order`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            leadId,
+            duration: selectedPlan.days,
+          }),
+        },
+      );
+
+      const orderResult = await orderResponse.json();
+
+      if (!orderResponse.ok) {
+        throw new Error(
+          orderResult?.message ||
+            "Your application is saved, but the payment order could not be created.",
+        );
+      }
+
+      const order = orderResult?.order || orderResult?.data;
+
+      if (
+        !order?.id ||
+        !Number.isFinite(Number(order.amount)) ||
+        Number(order.amount) <= 0
+      ) {
+        throw new Error(
+          "Your application is saved, but the backend returned an invalid payment order.",
+        );
+      }
+
+      // ---------------- STEP 4: OPEN CHECKOUT ----------------
+
+      const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+        amount: order.amount,
+        currency: order.currency || "INR",
+        name: "Nexila Technologies",
+        description: `${selectedPlan.days} Programme`,
+        order_id: order.id,
+
+        prefill: {
+          name: finalName,
+          email: finalEmail,
+          contact: finalPhone,
+        },
+
+        theme: {
+          color: "#F97316",
+        },
+
+        // ---------------- STEP 5: VERIFY PAYMENT ----------------
+
+        handler: async (paymentResponse) => {
+          setPaymentLoading(true);
+          setMessage("");
+
+          try {
+            const verifyResponse = await fetch(
+              `${API_BASE_URL}/payments/verify`,
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  leadId,
+                  razorpay_order_id: paymentResponse.razorpay_order_id,
+                  razorpay_payment_id: paymentResponse.razorpay_payment_id,
+                  razorpay_signature: paymentResponse.razorpay_signature,
+                }),
+              },
+            );
+
+            const verifyResult = await verifyResponse.json();
+
+            if (!verifyResponse.ok || verifyResult?.success !== true) {
+              setPaymentStatus("PENDING");
+              setMessage(
+                "Your application is saved, but payment verification is pending. Please contact our team before attempting another payment.",
+              );
+            } else {
+              // Only mark PAID after the backend verifies the signature
+              // and confirms that the correct amount was paid.
+              setPaymentStatus("PAID");
+              setMessage(
+                "Your application was submitted and your payment is confirmed.",
+              );
+            }
+          } catch (error) {
+            console.error("Payment verification error:", error);
+
+            setPaymentStatus("PENDING");
+            setMessage(
+              "Your application is saved, but payment confirmation is pending. Please contact our team before paying again.",
+            );
+          } finally {
+            setPaymentLoading(false);
+            setShowSuccess(true);
+          }
+        },
+
+        modal: {
+          ondismiss: () => {
+            setPaymentLoading(false);
+            setPaymentStatus("PENDING");
+            setMessage(
+              "Your application is saved in CRM. You can complete your payment later.",
+            );
+            setShowSuccess(true);
+          },
+        },
+      };
+
+      if (!options.key) {
+        throw new Error(
+          "Razorpay Key ID is missing. Please configure VITE_RAZORPAY_KEY_ID.",
+        );
+      }
+
+      const razorpay = new window.Razorpay(options);
+
+      razorpay.on("payment.failed", (failure) => {
+        console.error("Razorpay payment failed:", failure?.error);
+
+        setPaymentLoading(false);
+        setPaymentStatus("FAILED");
+        setMessage(
+          "Your application is saved, but the payment failed. Please try again later or contact our team.",
+        );
+        setShowSuccess(true);
+      });
+
+      razorpay.open();
     } catch (error) {
       console.error("Internship application error:", error);
 
       setMessage(
         error instanceof Error
           ? error.message
-          : "Unable to submit your application. Please try again.",
+          : "Unable to submit your application.",
       );
+
+      // If the lead was saved, show the application reference and
+      // explain that payment is still pending.
+      if (leadSaved && applicationDetails) {
+        setSubmittedData(applicationDetails);
+        setPaymentStatus("PENDING");
+        setShowSuccess(true);
+      }
+
+      setPaymentLoading(false);
     } finally {
       setLoading(false);
     }
@@ -674,6 +881,30 @@ setShowSuccess(true);
       </div>
     );
   }
+
+  const clearForm = () => {
+    setName("");
+    setPhone("");
+    setEmail("");
+    setCollege("");
+    setCollegeRegisterId("");
+    setGraduate("");
+    setYear("");
+    setDomain("");
+    setDuration("");
+    setDateofjoin("");
+    setLocation("");
+
+    setOk(false);
+    setMessage("");
+    setShowSuccess(false);
+    setSubmittedData(null);
+
+    setSavedLeadId(null);
+    setPaymentStatus("PENDING");
+    setPaymentLoading(false);
+    setLoading(false);
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -712,54 +943,54 @@ setShowSuccess(true);
       />
 
       <input
-  type="email"
-  name="email"
-  placeholder="Enter your email address"
-  value={email}
-  onChange={(e) => setEmail(e.target.value)}
-  required
-/>
+        type="email"
+        name="email"
+        placeholder="Enter your email address"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+      />
 
       {/* College Name - Searchable + Custom College */}
-<input
-  type="text"
-  name="college"
-  list="college-list"
-  placeholder="Select or enter your college name"
-  value={college}
-  onChange={(e) => {
-    const value = e.target.value;
-    setCollege(value);
-  }}
-  required
-/>
+      <input
+        type="text"
+        name="college"
+        list="college-list"
+        placeholder="Select or enter your college name"
+        value={college}
+        onChange={(e) => {
+          const value = e.target.value;
+          setCollege(value);
+        }}
+        required
+      />
 
-<datalist id="college-list">
-  {COLLEGES.map((x) => (
-    <option key={x} value={x} />
-  ))}
-</datalist>
+      <datalist id="college-list">
+        {COLLEGES.map((x) => (
+          <option key={x} value={x} />
+        ))}
+      </datalist>
 
-<small
-  style={{
-    display: "block",
-    marginTop: "-8px",
-    marginBottom: "12px",
-    color: "#8FA4CC",
-    fontSize: 12,
-  }}
->
-  If your college is not listed, type your college name.
-</small>
+      <small
+        style={{
+          display: "block",
+          marginTop: "-8px",
+          marginBottom: "12px",
+          color: "#8FA4CC",
+          fontSize: 12,
+        }}
+      >
+        If your college is not listed, type your college name.
+      </small>
 
-<input
-  type="text"
-  name="collegeRegisterId"
-  placeholder="Enter your college register ID"
-  value={collegeRegisterId}
-  onChange={(e) => setCollegeRegisterId(e.target.value)}
-  required
-/>
+      <input
+        type="text"
+        name="collegeRegisterId"
+        placeholder="Enter your college register ID"
+        value={collegeRegisterId}
+        onChange={(e) => setCollegeRegisterId(e.target.value)}
+        required
+      />
       <input
         type="text"
         name="location"
@@ -852,7 +1083,7 @@ setShowSuccess(true);
           Select a duration to view your discounted programme fee.
         </p>
 
-        <div className="pricing-plans">
+        {/* <div className="pricing-plans">
           {Object.entries(PRICING).map(([key, plan]) => (
             <button
               key={key}
@@ -879,6 +1110,60 @@ setShowSuccess(true);
               </span>
             </button>
           ))}
+        </div> */}
+
+        <div className="pricing-plans">
+          {Object.entries(PRICING).map(([key, plan]) => {
+            const isRecommended = key === "90";
+            const isBestValue = key === "120";
+
+            return (
+              <button
+                key={key}
+                type="button"
+                className={`pricing-card ${
+                  duration === key ? "active" : ""
+                } ${isRecommended ? "recommended" : ""} ${
+                  isBestValue ? "best-value" : ""
+                }`}
+                onClick={() => setDuration(key)}
+              >
+                {(isRecommended || isBestValue) && (
+                  <span className="plan-ribbon">
+                    {isBestValue ? "✦ CAREER-READY PROGRAM" : "RECOMMENDED"}
+                  </span>
+                )}
+
+                {(isRecommended || isBestValue) && (
+                  <span className="plan-glow"></span>
+                )}
+
+                <span className="plan-days">{plan.days}</span>
+
+                <span className="plan-original">
+                  ₹{plan.fee.toLocaleString("en-IN")}
+                </span>
+
+                <span className="plan-price">
+                  ₹{plan.amount.toLocaleString("en-IN")}
+                </span>
+
+                <span className="plan-discount">{plan.discount}% OFF</span>
+
+                <span className="plan-programme">{plan.programme}</span>
+
+                {isRecommended && (
+                  <span className="career-highlight">
+                    Chosen by Many College Students <br/> Great Value for Money
+                  </span>
+                )}
+
+                <span className="plan-select">
+                  {duration === key ? "✓ Selected" : "Choose Plan"}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
         {selectedPlan && (
@@ -930,15 +1215,20 @@ setShowSuccess(true);
       <button
         className="btn cta"
         type="submit"
-        disabled={loading}
+        disabled={loading || paymentLoading}
         style={{
-          opacity: loading ? 0.7 : 1,
-          cursor: loading ? "not-allowed" : "pointer",
+          opacity: loading || paymentLoading ? 0.7 : 1,
+          cursor: loading || paymentLoading ? "not-allowed" : "pointer",
         }}
       >
-        {loading ? "Submitting..." : "Submit Form"}
+        {loading
+          ? "Saving Application..."
+          : paymentLoading
+            ? "Processing Payment..."
+            : "Submit Form"}
       </button>
-            {showSuccess && submittedData && (
+
+      {showSuccess && submittedData && (
         <div
           className="nex-success-overlay"
           role="dialog"
@@ -946,7 +1236,9 @@ setShowSuccess(true);
           aria-labelledby="nex-success-title"
         >
           <div className="nex-success-card">
-            <div className="nex-success-icon">✓</div>
+            <div className="nex-success-icon">
+              {paymentStatus === "PAID" ? "✓" : "!"}
+            </div>
 
             <span className="nex-enquiry-eyebrow">
               INTERNSHIP APPLICATION RECEIVED
@@ -956,10 +1248,24 @@ setShowSuccess(true);
               Thank you, {submittedData.name.split(" ")[0]}!
             </h2>
 
-            <p>
-              Your internship application has been submitted successfully.
-              Our team will contact you with the next steps.
-            </p>
+            {paymentStatus === "PAID" ? (
+              <p>
+                Your internship application has been submitted successfully, and
+                your payment is confirmed.
+              </p>
+            ) : paymentStatus === "FAILED" ? (
+              <p>
+                Your application has been saved successfully. Your payment was
+                unsuccessful. Our team will contact you regarding the next
+                steps.
+              </p>
+            ) : (
+              <p>
+                Your internship application has been saved successfully. Your
+                payment is pending. Our team will contact you regarding the next
+                steps.
+              </p>
+            )}
 
             {submittedData.nexilaID && (
               <div className="nex-success-reference">
@@ -971,11 +1277,7 @@ setShowSuccess(true);
             <button
               type="button"
               className="nex-enquiry-submit"
-              onClick={() => {
-                setShowSuccess(false);
-                setSubmittedData(null);
-                setMessage("");
-              }}
+              onClick={clearForm}
             >
               Back to Form
             </button>

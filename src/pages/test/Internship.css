@@ -668,9 +668,11 @@ footer h3{color:#fff;font-size:15px;margin-bottom:12px}footer a{display:block;ma
 }
 
 .plan-programme {
-  font-size: 12px;
-  color: #c4d1ee;
-  line-height: 1.5;
+  font-size: 20px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.6;
+  text-shadow: 0 0 8px rgba(196, 209, 238, 0.35);
 }
 
 .plan-select {
@@ -1081,5 +1083,259 @@ footer h3{color:#fff;font-size:15px;margin-bottom:12px}footer a{display:block;ma
 
   .nex-success-card h2 {
     font-size: 24px;
+  }
+}
+
+/* /////////////////////////////////////////////////////////////////////////// */
+/* Allow ribbon and glow to stay inside each pricing card */
+
+.pricing-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Keep card content above the glow */
+.pricing-card > span:not(.plan-glow):not(.plan-ribbon) {
+  position: relative;
+  z-index: 2;
+}
+
+/* 90-day career-ready package */
+.pricing-card.recommended {
+  border: 2px solid #f59e0b;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.18);
+}
+
+/* 120-day best-value package */
+.pricing-card.best-value {
+  border: 2px solid #8b5cf6;
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.25);
+}
+
+/* Animated circular light */
+.plan-glow {
+  position: absolute;
+  z-index: 0;
+  top: -65px;
+  left: 50%;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  animation: circlePulse 3s ease-in-out infinite;
+}
+
+.recommended .plan-glow {
+  background: radial-gradient(
+    circle,
+    rgba(245, 158, 11, 0.27) 0%,
+    rgba(245, 158, 11, 0.1) 40%,
+    transparent 72%
+  );
+}
+
+.best-value .plan-glow {
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.32) 0%,
+    rgba(139, 92, 246, 0.12) 42%,
+    transparent 72%
+  );
+  animation-delay: 0.5s;
+}
+
+/* Diagonal package ribbon */
+.plan-ribbon {
+  position: absolute;
+  top: 13px;
+  right: -36px;
+  z-index: 3;
+  width: 145px;
+  padding: 7px 4px;
+  text-align: center;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  color: #fff;
+  transform: rotate(35deg);
+  pointer-events: none;
+}
+
+.recommended .plan-ribbon {
+  background: linear-gradient(135deg, #f59e0b, #b45309);
+  box-shadow: 0 3px 10px rgba(217, 119, 6, 0.25);
+}
+
+.best-value .plan-ribbon {
+  background: linear-gradient(135deg, #a78bfa, #7c3aed);
+  box-shadow: 0 3px 12px rgba(124, 58, 237, 0.3);
+}
+
+/* Career-focused supporting message */
+.career-highlight {
+  display: block;
+  max-width: 230px;
+  margin: 12px auto 0;
+  padding: 8px 10px;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 8px;
+  background: rgba(245, 158, 11, 0.08);
+  color: rgb(248, 241, 237);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+
+  animation: borderBlink 3s ease-in-out infinite;
+}
+
+@keyframes borderBlink {
+  0% {
+    border-color: #f59e0b;
+    box-shadow: 0 0 4px rgba(245, 158, 11, 0.2);
+  }
+
+  50% {
+    border-color: #fde68a;
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.7);
+  }
+
+  100% {
+    border-color: #f59e0b;
+    box-shadow: 0 0 4px rgba(245, 158, 11, 0.2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .career-highlight {
+    animation: none;
+    border-color: #f59e0b;
+  }
+}
+
+/* Circular light animation */
+@keyframes circlePulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    scale: 0.92;
+  }
+
+  50% {
+    opacity: 1;
+    scale: 1.08;
+  }
+}
+
+/* Keyboard accessibility */
+.pricing-card:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
+/* Reduced-motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .plan-glow {
+    animation: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Internship section: top and bottom layout */
+.lead {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  align-items: stretch;
+}
+
+/* Internship details occupy the full width */
+.lead > div:first-child {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Application form appears below the details */
+.internship-form-container {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  align-self: stretch;
+}
+
+.internship-form-container > * {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .lead {
+    gap: 24px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+.internship-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+  align-items: start;
+}
+
+.internship-info-column {
+  min-width: 0;
+}
+
+.internship-info-column h3 {
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+
+.internship-info-column h3:first-child {
+  margin-top: 0;
+}
+
+.internship-info-column ul {
+  padding-left: 20px;
+}
+
+.internship-info-column li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .internship-info-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 }

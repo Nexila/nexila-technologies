@@ -715,6 +715,7 @@ function InternshipPage() {
       <section className="sec alt" id="apply">
         <div className="wrap">
           <div className="lead" id="contact">
+            {/* Internship Heading */}
             <div>
               <div className="tag" style={{ color: "#7FB0FF" }}>
                 Apply for internship
@@ -734,6 +735,7 @@ function InternshipPage() {
                 <a href="tel:+919803061234">+91 980 306 1234</a>.
               </p>
 
+              {/* Internship Type Selection */}
               <div className="internship-options">
                 <label
                   className={
@@ -771,69 +773,89 @@ function InternshipPage() {
                 </label>
               </div>
 
+              {/* Internship Details: Two Columns */}
               {internshipType === "individual" ? (
                 <div className="internship-details">
-                  <h3>Duration</h3>
-                  <ul>
-                    <li>15 Days</li>
-                    <li>30 Days</li>
-                    <li>60 Days</li>
-                    <li>90 Days</li>
-                  </ul>
+                  <div className="internship-info-grid">
+                    {/* Left Column */}
+                    <div className="internship-info-column">
+                      <h3>Duration</h3>
+                      <ul>
+                        <li>15 Days</li>
+                        <li>30 Days</li>
+                        <li>60 Days</li>
+                        <li>90 Days</li>
+                      </ul>
 
-                  <h3>Mode</h3>
-                  <p>Offline / Online</p>
+                      <h3>Mode</h3>
+                      <p>Offline / Online</p>
 
-                  <h3>Batch Starts</h3>
-                  <p>Every Wednesday</p>
+                      <h3>Batch Starts</h3>
+                      <p>Every Wednesday</p>
+                    </div>
 
-                  <h3>Classes</h3>
-                  <ul>
-                    <li>Weekdays (Monday–Friday): 1 hour per day</li>
-                    <li>Weekend (Saturday): 3 hours</li>
-                  </ul>
+                    {/* Right Column */}
+                    <div className="internship-info-column">
+                      <h3>Classes</h3>
+                      <ul>
+                        <li>Weekdays (Monday–Friday): 1 hour per day</li>
+                        <li>Weekend (Saturday): 3 hours</li>
+                      </ul>
 
-                  <h3>Timing</h3>
-                  <ul>
-                    <li>Weekdays: 9:30 AM–7:30 PM (choose a 1-hour slot)</li>
-                    <li>Saturday: 9:30 AM–12:30 PM</li>
-                    <li>Saturday: 12:30 PM–3:30 PM</li>
-                    <li>Saturday: 3:30 PM–6:30 PM</li>
-                  </ul>
+                      <h3>Timing</h3>
+                      <ul>
+                        <li>
+                          Weekdays: 9:30 AM–7:30 PM (choose a 1-hour slot)
+                        </li>
+                        <li>Saturday: 9:30 AM–12:30 PM</li>
+                        <li>Saturday: 12:30 PM–3:30 PM</li>
+                        <li>Saturday: 3:30 PM–6:30 PM</li>
+                      </ul>
 
-                  <h3>Benefits</h3>
-                  <ul className="ck2">
-                    <li>Offer Letter</li>
-                    <li>Internship Certificate</li>
-                    <li>Confirmation Email with Offer Letter</li>
-                    <li>Attendance Certificate</li>
-                    <li>Completion Certificate</li>
-                  </ul>
+                      <h3>Benefits</h3>
+                      <ul className="ck2">
+                        <li>Offer Letter</li>
+                        <li>Internship Certificate</li>
+                        <li>Confirmation Email with Offer Letter</li>
+                        <li>Attendance Certificate</li>
+                        <li>Completion Certificate</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               ) : (
                 <div className="internship-details">
-                  <h3>Group Internship</h3>
-                  <ul className="ck2">
-                    <li>Maximum 6 members per group</li>
-                    <li>Collaborative learning with your team</li>
-                    <li>Live project with mentor support</li>
-                    <li>Certificate and recommendation letter</li>
-                  </ul>
+                  <div className="internship-info-grid">
+                    {/* Left Column */}
+                    <div className="internship-info-column">
+                      <h3>Group Internship</h3>
+                      <ul className="ck2">
+                        <li>Maximum 6 members per group</li>
+                        <li>Collaborative learning with your team</li>
+                        <li>Live project with mentor support</li>
+                        <li>Certificate and recommendation letter</li>
+                      </ul>
+                    </div>
 
-                  <h3>Mode</h3>
-                  <p>Contact our team for group internship options.</p>
+                    {/* Right Column */}
+                    <div className="internship-info-column">
+                      <h3>Mode</h3>
+                      <p>Contact our team for group internship options.</p>
 
-                  <h3>Batch Starts</h3>
-                  <p>Wednesday</p>
+                      <h3>Batch Starts</h3>
+                      <p>Wednesday</p>
 
-                  <h3>Contact</h3>
-                  <p>
-                    <a href="tel:+919803061234">+91 980 306 1234</a>
-                  </p>
+                      <h3>Contact</h3>
+                      <p>
+                        <a href="tel:+919803061234">+91 980 306 1234</a>
+                      </p>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
 
+            {/* Application Form */}
             <div className="internship-form-container">
               {internshipType === "individual" ? (
                 <InternForm />
