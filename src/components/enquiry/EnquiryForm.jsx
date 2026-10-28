@@ -133,7 +133,6 @@
 //     "AVC College of Engineering",
 //     "AVS Engineering College",
 
-
 //     "B.S. Abdur Rahman Crescent University (BSACIST)",
 //     "Bannari Amman Institute of Technology (BIT)",
 //     "Bharath University",
@@ -141,13 +140,11 @@
 //     "Bharathidasan University",
 //     "Bishop Hebbur College (Autonomous)",
 
-
 //     "C. Abdul Hakeem College of Engineering and Technology",
 //     "CARE College of Engineering",
 //     "Chennai Institute of Technology (CIT)",
 //     "Coimbatore Institute of Management and Technology",
 //     "Coimbatore Institute of Technology (CIT)",
-
 
 //     "D.K.M College for Women",
 //     "DG Vaishnav College",
@@ -161,7 +158,6 @@
 //     "Dr. N.G.P. Arts and Science College",
 //     "Dr. N.G.P. Institute of Technology",
 
-
 //     "Easwari Engineering College",
 //     "Einstein College of Engineering",
 //     "Erode Arts College (Autonomous)",
@@ -170,17 +166,14 @@
 //     "Ethiraj College for Women",
 //     "Excel Engineering College",
 
-
 //     "Fatima College",
 //     "Francis Xavier Engineering College",
-
 
 //     "G.K.M. College of Engineering and Technology",
 //     "Ganadipathy Tulsi's Engineering College",
 //     "Government College of Engineering",
 //     "Government Vellore Institute of Technology",
 //     "Guru Nanak College",
-
 
 //     "Hindustan College Of Arts And Science",
 //     "Hindustan Institute of Technology and Science (HITS)",
@@ -190,19 +183,16 @@
 //     "Holy Cross College for Women(Autonomous)",
 //     "Holy Cross College",
 
-
 //     "Indra Ganesan College of Engineering",
 //     "Info Institute of Engineering",
 //     "Islamaiah Women's Arts and Science College",
 //     "Islamiah College",
-
 
 //     "J.J.College of Arts and science",
 //     "Jamal Mohammed College",
 //     "Jeppiaar Engineering College",
 //     "Jeppiaar Institute of Technology",
 //     "Jerusalem College of Engineering",
-
 
 //     "K. Ramakrishnan College of Engineering",
 //     "K. Ramakrishnan College of Technology",
@@ -230,10 +220,8 @@
 //     "KPR Institute of Engineering and Technology (KPRIET)",
 //     "Kumaraguru College of Technology (KCT)",
 
-
 //     "Lady Doak College",
 //     "Loyola College",
-
 
 //     "M.A.M. College of Engineering",
 //     "M.A.M. School of Engineering",
@@ -256,7 +244,6 @@
 //     "Meenakshi Sundararajan Engineering College",
 //     "Mepco Schlenk Engineering College",
 //     "MOP Vaishnav College for Women",
-
 
 //     "Nandha Arts and Science College",
 //     "Nandha College of Technology (NCT)",
@@ -291,7 +278,7 @@
 //     "PSN Institute of Technology and Science",
 //     "PSNA College of Engineering and Technology",
 //     "PSR Engineering College",
-    
+
 //     "Quaid-e-Millet College",
 //     "Quaid-e-Millet Government Arts College for Women",
 //     "Queen Mary's College",
@@ -895,7 +882,7 @@
 import { useState } from "react";
 import "./EnquiryForm.css";
 
-const API_URL = "http://localhost:5000/api/leads/create-public";
+const API_URL = "https://crm.nexilatechnologies.com/api/leads/create-public";
 
 const TAMIL_NADU_DISTRICTS = [
   "Ariyalur",

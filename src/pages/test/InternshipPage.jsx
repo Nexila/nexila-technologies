@@ -575,7 +575,7 @@ export function InternForm() {
     }
 
     // Set this in .env for local development or production.
-    // Example: VITE_API_BASE_URL=http://localhost:5000/api
+    // Example: VITE_API_BASE_URL=https://crm.nexilatechnologies.com/api
     const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
       // ||
       // "https://crm.nexilatechnologies.com/api"
@@ -1154,7 +1154,7 @@ export function InternForm() {
 
                 {isRecommended && (
                   <span className="career-highlight">
-                    Chosen by Many College Students <br/> Great Value for Money
+                    Chosen by Many College Students <br /> Great Value for Money
                   </span>
                 )}
 

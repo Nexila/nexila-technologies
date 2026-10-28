@@ -685,7 +685,7 @@ function Consult() {
 
 function HackathonPage() {
   const HACKATHON_INTEREST_API =
-    // "http://localhost:5000/api/hackathon-interest/end";
+    // "https://crm.nexilatechnologies.com/api/hackathon-interest/end";
   "https://crm.nexilatechnologies.com/api/hackathon-interest/end";
   const [ok, setOk] = useState(false);
 

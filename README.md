@@ -1213,7 +1213,7 @@ function Lead() {
       // ====================================
 
       const response = await fetch(
-        "http://localhost:5000/api/leads/create-public",
+        "https://crm.nexilatechnologies.com/api/leads/create-public",
         {
           method: "POST",
 
@@ -1729,7 +1729,7 @@ function DemoPopup() {
       console.log("Sending demo lead to CRM:", crmData);
 
       const response = await fetch(
-        "http://localhost:5000/api/leads/create-public",
+        "https://crm.nexilatechnologies.com/api/leads/create-public",
         {
           method: "POST",
 
