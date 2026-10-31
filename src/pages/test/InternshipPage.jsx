@@ -575,7 +575,7 @@ export function InternForm() {
     }
 
     // Set this in .env for local development or production.
-    // Example: VITE_API_BASE_URL=https://crm.nexilatechnologies.com/api
+    // Example: VITE_API_BASE_URL=http://localhost:5000/api
     const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
       // ||
       // "https://crm.nexilatechnologies.com/api"
@@ -908,182 +908,172 @@ export function InternForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        required
-        placeholder="Name"
-        value={name}
-        onChange={(e) => {
-          const value = e.target.value
-            .replace(/[^a-zA-Z\s]/g, "")
-            .replace(/\s+/g, " ")
-            .split(" ")
-            .map((word) =>
-              word
-                ? word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-                : "",
-            )
-            .join(" ");
-
-          setName(value);
-        }}
-      />
-
-      <input
-        required
-        type="tel"
-        inputMode="numeric"
-        maxLength={10}
-        placeholder="Contact Number"
-        value={phone}
-        onChange={(e) => {
-          const value = e.target.value.replace(/\D/g, "").slice(0, 10);
-
-          setPhone(value);
-        }}
-      />
-
-      <input
-        type="email"
-        name="email"
-        placeholder="Enter your email address"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-
-      {/* College Name - Searchable + Custom College */}
-      <input
-        type="text"
-        name="college"
-        list="college-list"
-        placeholder="Select or enter your college name"
-        value={college}
-        onChange={(e) => {
-          const value = e.target.value;
-          setCollege(value);
-        }}
-        required
-      />
-
-      <datalist id="college-list">
-        {COLLEGES.map((x) => (
-          <option key={x} value={x} />
-        ))}
-      </datalist>
-
-      <small
-        style={{
-          display: "block",
-          marginTop: "-8px",
-          marginBottom: "12px",
-          color: "#8FA4CC",
-          fontSize: 12,
-        }}
-      >
-        If your college is not listed, type your college name.
-      </small>
-
-      <input
-        type="text"
-        name="collegeRegisterId"
-        placeholder="Enter your college register ID"
-        value={collegeRegisterId}
-        onChange={(e) => setCollegeRegisterId(e.target.value)}
-        required
-      />
-      <input
-        type="text"
-        name="location"
-        list="district-list"
-        placeholder="Select or type your district"
-        value={location}
-        onChange={(e) => {
-          const value = e.target.value;
-          setLocation(value.replace(/\b\w/g, (char) => char.toUpperCase()));
-        }}
-        required
-      />
-
-      <datalist id="district-list">
-        {TAMIL_NADU_DISTRICTS.map((district) => (
-          <option key={district} value={district} />
-        ))}
-      </datalist>
-
-      <small
-        style={{
-          display: "block",
-          marginTop: "-8px",
-          marginBottom: "12px",
-          color: "#8FA4CC",
-          fontSize: 12,
-        }}
-      >
-        If your district is not listed, type your district name.
-      </small>
-
-      {/* Graduate - Searchable but must select from list */}
-      <select
-        required
-        value={graduate}
-        onChange={(e) => setGraduate(e.target.value)}
-      >
-        <option value="" disabled>
-          Graduate
-        </option>
-
-        {GRADUATES.map((x) => (
-          <option key={x} value={x}>
-            {x}
-          </option>
-        ))}
-      </select>
-
-      {sel("Year of Studying", IYEAR, year, (e) => setYear(e.target.value))}
-
-      {sel("Domain", IDOMS, domain, (e) => setDomain(e.target.value))}
-
-      {/* Date of Joining - Wednesdays Only */}
-      {/* Date of Joining - Wednesdays Only */}
-      <div className="joining-date-section">
-        <label htmlFor="dateofjoin">Date of Joining</label>
-
-        <DatePicker
-          id="dateofjoin"
-          selected={dateofjoin ? new Date(`${dateofjoin}T00:00:00`) : null}
-          onChange={(date) => {
-            if (!date) {
-              setDateofjoin("");
-              return;
-            }
-
-            // Format as YYYY-MM-DD using local date values
-            const year = date.getFullYear();
-            const month = String(date.getMonth() + 1).padStart(2, "0");
-            const day = String(date.getDate()).padStart(2, "0");
-
-            setDateofjoin(`${year}-${month}-${day}`);
-          }}
-          filterDate={(date) => date.getDay() === 3}
-          minDate={new Date()}
-          dateFormat="dd/MM/yyyy"
-          placeholderText="Select a Wednesday"
-          calendarStartDay={1}
+      <div className="form-grid">
+        <input
           required
-          autoComplete="off"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => {
+            const value = e.target.value
+              .replace(/[^a-zA-Z\s]/g, "")
+              .replace(/\s+/g, " ")
+              .split(" ")
+              .map((word) =>
+                word
+                  ? word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+                  : "",
+              )
+              .join(" ");
+
+            setName(value);
+          }}
         />
 
-        <small>Only Wednesdays are available for joining.</small>
-      </div>
+        <input
+          required
+          type="tel"
+          inputMode="numeric"
+          maxLength={10}
+          placeholder="Contact Number"
+          value={phone}
+          onChange={(e) => {
+            const value = e.target.value.replace(/\D/g, "").slice(0, 10);
 
-      {/* Internship Duration & Pricing */}
-      <div className="pricing-section">
-        <h3>Choose Your Internship Plan</h3>
-        <p className="pricing-subtitle">
-          Select a duration to view your discounted programme fee.
-        </p>
+            setPhone(value);
+          }}
+        />
 
-        {/* <div className="pricing-plans">
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your email address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+
+        {/* College Name - Searchable + Custom College */}
+        {/* College Name */}
+        <div className="form-field">
+          <input
+            type="text"
+            name="college"
+            list="college-list"
+            placeholder="Select or enter your college name"
+            value={college}
+            onChange={(e) => setCollege(e.target.value)}
+            required
+          />
+
+          <datalist id="college-list">
+            {COLLEGES.map((x) => (
+              <option key={x} value={x} />
+            ))}
+          </datalist>
+
+          <small className="field-hint">
+            If your college is not listed, type your college name.
+          </small>
+        </div>
+
+        {/* College Register ID */}
+        <input
+          type="text"
+          name="collegeRegisterId"
+          placeholder="Enter your college register ID"
+          value={collegeRegisterId}
+          onChange={(e) => setCollegeRegisterId(e.target.value)}
+          required
+        />
+
+        {/* District */}
+        <div className="form-field">
+          <input
+            type="text"
+            name="location"
+            list="district-list"
+            placeholder="Select or type your district"
+            value={location}
+            onChange={(e) => {
+              const value = e.target.value;
+              setLocation(value.replace(/\b\w/g, (char) => char.toUpperCase()));
+            }}
+            required
+          />
+
+          <datalist id="district-list">
+            {TAMIL_NADU_DISTRICTS.map((district) => (
+              <option key={district} value={district} />
+            ))}
+          </datalist>
+
+          <small className="field-hint">
+            If your district is not listed, type your district name.
+          </small>
+        </div>
+
+        {/* Graduate - Searchable but must select from list */}
+        <select
+          required
+          value={graduate}
+          onChange={(e) => setGraduate(e.target.value)}
+        >
+          <option value="" disabled>
+            Graduate
+          </option>
+
+          {GRADUATES.map((x) => (
+            <option key={x} value={x}>
+              {x}
+            </option>
+          ))}
+        </select>
+
+        {sel("Year of Studying", IYEAR, year, (e) => setYear(e.target.value))}
+
+        {sel("Domain", IDOMS, domain, (e) => setDomain(e.target.value))}
+
+        {/* Date of Joining - Wednesdays Only */}
+        {/* Date of Joining - Wednesdays Only */}
+        <div className="joining-date-section">
+          <label htmlFor="dateofjoin">Date of Joining</label>
+
+          <DatePicker
+            id="dateofjoin"
+            selected={dateofjoin ? new Date(`${dateofjoin}T00:00:00`) : null}
+            onChange={(date) => {
+              if (!date) {
+                setDateofjoin("");
+                return;
+              }
+
+              // Format as YYYY-MM-DD using local date values
+              const year = date.getFullYear();
+              const month = String(date.getMonth() + 1).padStart(2, "0");
+              const day = String(date.getDate()).padStart(2, "0");
+
+              setDateofjoin(`${year}-${month}-${day}`);
+            }}
+            filterDate={(date) => date.getDay() === 3}
+            minDate={new Date()}
+            dateFormat="dd/MM/yyyy"
+            placeholderText="Select a Wednesday"
+            calendarStartDay={1}
+            required
+            autoComplete="off"
+          />
+
+          <small>Only Wednesdays are available for joining.</small>
+        </div>
+
+        {/* Internship Duration & Pricing */}
+        <div className="pricing-section">
+          <h3>Choose Your Internship Plan</h3>
+          <p className="pricing-subtitle">
+            Select a duration to view your discounted programme fee.
+          </p>
+
+          {/* <div className="pricing-plans">
           {Object.entries(PRICING).map(([key, plan]) => (
             <button
               key={key}
@@ -1112,93 +1102,96 @@ export function InternForm() {
           ))}
         </div> */}
 
-        <div className="pricing-plans">
-          {Object.entries(PRICING).map(([key, plan]) => {
-            const isRecommended = key === "90";
-            const isBestValue = key === "120";
+          <div className="pricing-plans">
+            {Object.entries(PRICING).map(([key, plan]) => {
+              const isRecommended = key === "90";
+              const isBestValue = key === "120";
 
-            return (
-              <button
-                key={key}
-                type="button"
-                className={`pricing-card ${
-                  duration === key ? "active" : ""
-                } ${isRecommended ? "recommended" : ""} ${
-                  isBestValue ? "best-value" : ""
-                }`}
-                onClick={() => setDuration(key)}
-              >
-                {(isRecommended || isBestValue) && (
-                  <span className="plan-ribbon">
-                    {isBestValue ? "✦ CAREER-READY PROGRAM" : "RECOMMENDED"}
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  className={`pricing-card ${
+                    duration === key ? "active" : ""
+                  } ${isRecommended ? "recommended" : ""} ${
+                    isBestValue ? "best-value" : ""
+                  } ${
+                    isRecommended || isBestValue ? "pricing-card-bottom" : ""
+                  }`}
+                  onClick={() => setDuration(key)}
+                >
+                  {(isRecommended || isBestValue) && (
+                    <span className="plan-ribbon">
+                      {isBestValue ? "✦ CAREER-READY PROGRAM" : "RECOMMENDED"}
+                    </span>
+                  )}
+
+                  {(isRecommended || isBestValue) && (
+                    <span className="plan-glow"></span>
+                  )}
+
+                  <span className="plan-days">{plan.days}</span>
+
+                  <span className="plan-original">
+                    ₹{plan.fee.toLocaleString("en-IN")}
                   </span>
-                )}
 
-                {(isRecommended || isBestValue) && (
-                  <span className="plan-glow"></span>
-                )}
-
-                <span className="plan-days">{plan.days}</span>
-
-                <span className="plan-original">
-                  ₹{plan.fee.toLocaleString("en-IN")}
-                </span>
-
-                <span className="plan-price">
-                  ₹{plan.amount.toLocaleString("en-IN")}
-                </span>
-
-                <span className="plan-discount">{plan.discount}% OFF</span>
-
-                <span className="plan-programme">{plan.programme}</span>
-
-                {isRecommended && (
-                  <span className="career-highlight">
-                    Chosen by Many College Students <br /> Great Value for Money
+                  <span className="plan-price">
+                    ₹{plan.amount.toLocaleString("en-IN")}
                   </span>
-                )}
 
-                <span className="plan-select">
-                  {duration === key ? "✓ Selected" : "Choose Plan"}
-                </span>
-              </button>
-            );
-          })}
-        </div>
+                  <span className="plan-discount">{plan.discount}% OFF</span>
 
-        {selectedPlan && (
-          <div className="price-summary">
-            <h4>Price Summary</h4>
+                  <span className="plan-programme">{plan.programme}</span>
 
-            <div className="price-row">
-              <span>Duration</span>
-              <strong>{selectedPlan.days}</strong>
-            </div>
+                  {isRecommended && (
+                    <span className="career-highlight">
+                      Chosen by Many College Students <br />
+                      Great Value for Money
+                    </span>
+                  )}
 
-            <div className="price-row">
-              <span>Original Fee</span>
-              <strong>₹{selectedPlan.fee.toLocaleString("en-IN")}</strong>
-            </div>
-
-            <div className="price-row">
-              <span>Discount ({selectedPlan.discount}%)</span>
-              <strong className="discount-value">
-                −₹{selectedPlan.discountAmount.toLocaleString("en-IN")}
-              </strong>
-            </div>
-
-            <div className="price-row total-row">
-              <span>Final Amount</span>
-              <strong>₹{selectedPlan.amount.toLocaleString("en-IN")}</strong>
-            </div>
-
-            <div className="price-programme">
-              Programme: <strong>{selectedPlan.programme}</strong>
-            </div>
+                  <span className="plan-select">
+                    {duration === key ? "✓ Selected" : "Choose Plan"}
+                  </span>
+                </button>
+              );
+            })}
           </div>
-        )}
-      </div>
 
+          {selectedPlan && (
+            <div className="price-summary">
+              <h4>Price Summary</h4>
+
+              <div className="price-row">
+                <span>Duration</span>
+                <strong>{selectedPlan.days}</strong>
+              </div>
+
+              <div className="price-row">
+                <span>Original Fee</span>
+                <strong>₹{selectedPlan.fee.toLocaleString("en-IN")}</strong>
+              </div>
+
+              <div className="price-row">
+                <span>Discount ({selectedPlan.discount}%)</span>
+                <strong className="discount-value">
+                  −₹{selectedPlan.discountAmount.toLocaleString("en-IN")}
+                </strong>
+              </div>
+
+              <div className="price-row total-row">
+                <span>Final Amount</span>
+                <strong>₹{selectedPlan.amount.toLocaleString("en-IN")}</strong>
+              </div>
+
+              <div className="price-programme">
+                Programme: <strong>{selectedPlan.programme}</strong>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
       {message && (
         <div
           style={{

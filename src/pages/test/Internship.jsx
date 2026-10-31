@@ -65,6 +65,17 @@ const IWHO = [
 ];
 
 const IBEN = [
+  ["📩", "Offer Letter", "Receive an offer letter confirming your internship."],
+  [
+    "🎓",
+    "Internship Certificate",
+    "Receive an internship certificate upon successful completion.",
+  ],
+  [
+    "📧",
+    "Confirmation Email",
+    "Receive a confirmation email with your offer letter.",
+  ],
   [
     "🧰",
     "Tools and platforms",
@@ -89,6 +100,16 @@ const IBEN = [
     "✨",
     "Grooming session",
     "A grooming session to help you get ready for the industry.",
+  ],
+  [
+    "📋",
+    "Attendance Certificate",
+    "Receive an attendance certificate for your internship.",
+  ],
+  [
+    "🏆",
+    "Completion Certificate",
+    "Receive a completion certificate after successfully completing the programme.",
   ],
 ];
 
@@ -580,8 +601,8 @@ function InternshipPage() {
 
       <section className="sec">
         <div className="wrap">
-          <div className="sl">
-            <div>
+          <div className="sl full-width-content">
+            <div className="main-content">
               {/* PROGRAM OVERVIEW */}
 
               <div className="blk">
@@ -589,9 +610,10 @@ function InternshipPage() {
                   tag="Program overview"
                   title="A stepping stone into the IT industry"
                   sub="This internship gives college students hands-on experience in the tech industry. You apply classroom knowledge to real-world projects, build new skills and work alongside seasoned professionals, whether you want to improve your coding, understand the software development life cycle or learn about current industry trends."
+                  className="full-width-content"
                 />
 
-                <div className="grid g2">
+                <div className="grid g3">
                   {IFEAT.map(([icon, title, description]) => (
                     <Fade key={title}>
                       <div className="card">
@@ -666,12 +688,57 @@ function InternshipPage() {
                 </div>
               </div>
 
+              {/* INTERNSHIP DETAILS */}
+
+              <div className="blk">
+                <Head
+                  tag="Internship details"
+                  title="Duration, mode & schedule"
+                  sub="Plan your internship with flexible learning schedules, convenient timings and weekly batches."
+                />
+
+                <div className="grid g2">
+                  {/* Duration & Mode */}
+                  <div className="card">
+                    <h3>Duration</h3>
+                    <ul className="ck2">
+                      <li>15 Days</li>
+                      <li>30 Days</li>
+                      <li>60 Days</li>
+                      <li>90 Days</li>
+                    </ul>
+
+                    <h3>Mode</h3>
+                    <p>Offline / Online</p>
+
+                    <h3>Batch Starts</h3>
+                    <p>Every Wednesday</p>
+                  </div>
+
+                  {/* Classes & Timing */}
+                  <div className="card">
+                    <h3>Classes</h3>
+                    <ul className="ck2">
+                      <li>Weekdays (Monday–Friday): 1 hour per day</li>
+                      <li>Weekend (Saturday): 3 hours</li>
+                    </ul>
+
+                    <h3>Timing</h3>
+                    <ul className="ck2">
+                      <li>Weekdays: 9:30 AM–7:30 PM (choose a 1-hour slot)</li>
+                      <li>Saturday: 9:30 AM–12:30 PM</li>
+                      <li>Saturday: 12:30 PM–3:30 PM</li>
+                      <li>Saturday: 3:30 PM–6:30 PM</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
               {/* BENEFITS */}
 
               <div className="blk">
                 <Head tag="Benefits" title="What you get from the program" />
 
-                <div className="grid g2">
+                <div className="grid g3">
                   {IBEN.map(([icon, title, description]) => (
                     <Fade key={title}>
                       <div className="card">
@@ -688,14 +755,14 @@ function InternshipPage() {
 
               {/* REVIEWS */}
 
-              <div className="blk">
+              {/* <div className="blk">
                 <GReviews />
-              </div>
+              </div> */}
             </div>
 
             {/* ================= SIDEBAR FORM ================= */}
 
-            <aside className="sf">
+            {/* <aside className="sf">
               <div className="sfc">
                 <div className="tag" style={{ color: "#7FB0FF" }}>
                   Apply for internship
@@ -705,7 +772,7 @@ function InternshipPage() {
 
                 <InternForm />
               </div>
-            </aside>
+            </aside> */}
           </div>
         </div>
       </section>
@@ -774,56 +841,8 @@ function InternshipPage() {
               </div>
 
               {/* Internship Details: Two Columns */}
-              {internshipType === "individual" ? (
-                <div className="internship-details">
-                  <div className="internship-info-grid">
-                    {/* Left Column */}
-                    <div className="internship-info-column">
-                      <h3>Duration</h3>
-                      <ul>
-                        <li>15 Days</li>
-                        <li>30 Days</li>
-                        <li>60 Days</li>
-                        <li>90 Days</li>
-                      </ul>
-
-                      <h3>Mode</h3>
-                      <p>Offline / Online</p>
-
-                      <h3>Batch Starts</h3>
-                      <p>Every Wednesday</p>
-                    </div>
-
-                    {/* Right Column */}
-                    <div className="internship-info-column">
-                      <h3>Classes</h3>
-                      <ul>
-                        <li>Weekdays (Monday–Friday): 1 hour per day</li>
-                        <li>Weekend (Saturday): 3 hours</li>
-                      </ul>
-
-                      <h3>Timing</h3>
-                      <ul>
-                        <li>
-                          Weekdays: 9:30 AM–7:30 PM (choose a 1-hour slot)
-                        </li>
-                        <li>Saturday: 9:30 AM–12:30 PM</li>
-                        <li>Saturday: 12:30 PM–3:30 PM</li>
-                        <li>Saturday: 3:30 PM–6:30 PM</li>
-                      </ul>
-
-                      <h3>Benefits</h3>
-                      <ul className="ck2">
-                        <li>Offer Letter</li>
-                        <li>Internship Certificate</li>
-                        <li>Confirmation Email with Offer Letter</li>
-                        <li>Attendance Certificate</li>
-                        <li>Completion Certificate</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              ) : (
+              {/* Internship Details */}
+              {internshipType === "group" && (
                 <div className="internship-details">
                   <div className="internship-info-grid">
                     {/* Left Column */}

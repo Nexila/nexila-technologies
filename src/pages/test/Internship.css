@@ -1339,3 +1339,179 @@ footer h3{color:#fff;font-size:15px;margin-bottom:12px}footer a{display:block;ma
     gap: 12px;
   }
 }
+
+
+/* Desktop: 3 fields per row */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px 20px;
+  align-items: start;
+  width: 100%;
+}
+
+/* Inputs and dropdowns fill their grid columns */
+.form-grid input,
+.form-grid select {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Keep date picker and pricing sections full width */
+.form-grid .joining-date-section,
+.form-grid .pricing-section {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+
+/* Tablet: 2 fields per row */
+@media (max-width: 900px) {
+  .form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+/* Mobile: 1 field per row */
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .form-grid .joining-date-section,
+  .form-grid .pricing-section {
+    grid-column: 1;
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.field-hint {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 0;
+  color: #8FA4CC;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+/* Use the full width when the sidebar is removed */
+.sl.full-width-content {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+.sl.full-width-content > .main-content {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Keep content grids responsive */
+.full-width-content .grid {
+  width: 100%;
+}
+
+/* Desktop: 2 cards per row */
+.full-width-content .grid.g2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* Mobile: 1 card per row */
+@media (max-width: 600px) {
+  .full-width-content .grid.g2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pricing-plans {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* First 3 plans occupy the top row */
+.pricing-plans > .pricing-card:nth-child(-n + 3) {
+  grid-column: span 2;
+}
+
+/* Last 2 plans occupy the bottom row, centered */
+.pricing-plans > .pricing-card-bottom {
+  grid-column: span 2;
+}
+
+.pricing-plans > .pricing-card:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.pricing-plans > .pricing-card:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
+/* Mobile: one plan per row */
+@media (max-width: 600px) {
+  .pricing-plans {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .pricing-plans > .pricing-card,
+  .pricing-plans > .pricing-card-bottom,
+  .pricing-plans > .pricing-card:nth-child(4),
+  .pricing-plans > .pricing-card:nth-child(5) {
+    grid-column: 1;
+  }
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.g3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .g3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .g3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.full-width-content {
+  width: 100%;
+  max-width: none;
+  text-align: justify;
+  box-sizing: border-box;
+}
+
+.sub.full-width-content {
+  width: 100%;
+  max-width: 100%;
+  text-align: justify;
+  box-sizing: border-box;
+}
+
+.full-width-content .sub {
+  width: 100%;
+  max-width: none;
+  text-align: justify;
+}
