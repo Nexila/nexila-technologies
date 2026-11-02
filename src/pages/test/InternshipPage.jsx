@@ -55,8 +55,8 @@ export function InternForm() {
       days: "30 days",
       fee: 3333,
       discount: 25,
-      discountAmount: 833,
-      amount: 2500,
+      discountAmount: 834,
+      amount: 2499,
       programme: "Internship",
     },
     60: {
@@ -64,7 +64,7 @@ export function InternForm() {
       fee: 6666,
       discount: 25,
       discountAmount: 1667,
-      amount: 5000,
+      amount: 4999,
       programme: "Internship",
     },
     90: {
