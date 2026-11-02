@@ -820,7 +820,7 @@ function InternshipPage() {
                   />
                   <span>Individual Internship</span>
                 </label>
-
+{/* 
                 <label
                   className={
                     internshipType === "group"
@@ -837,7 +837,7 @@ function InternshipPage() {
                   />
                   <span>Group Internship</span>
                   <small>Offers only applicable for 6 members group</small>
-                </label>
+                </label> */}
               </div>
 
               {/* Internship Details: Two Columns */}
