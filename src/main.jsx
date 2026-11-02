@@ -29,7 +29,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/" element={<Home />} />
         <Route path="/nexila-hackathon-2026" element={<Hackathon />} />
         <Route
-          path="/it-internship-for-students-tambaram-chennai"
+          path="/test-internship"
           element={<Internship />}
         />
         <Route path="/about-us" element={<About />} />
@@ -39,7 +39,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/blogs" element={<Blog />} />
         <Route path="/blogs/:slug" element={<BlogPost />} />
         <Route path="/enquiry-form" element={<EnquiryForm />} />
-        <Route path="/test-internship" element={<InternshipTest />} />
+        <Route path="/it-internship-for-students-tambaram-chennai" element={<InternshipTest />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
