@@ -549,7 +549,7 @@ function InternshipPage() {
                 <span>Duration</span>
 
                 <div>
-                  <b>2 </b> weeks onwards
+                  <b>Two</b> weeks onwards
                 </div>
 
                 <div className="wk">
