@@ -499,6 +499,12 @@ export function Header({ route }) {
                 document.getElementById("register")?.scrollIntoView({
                   behavior: "smooth",
                 });
+              }
+              else if (window.location.pathname === "/it-internship-for-students-tambaram-chennai") {
+                e.preventDefault();
+                document.getElementById("apply")?.scrollIntoView({
+                  behavior: "smooth",
+                });
               } else {
                 openDemo(e);
               }

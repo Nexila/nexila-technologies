@@ -450,6 +450,7 @@ export function InternForm() {
     "Azure",
     "Data Analytics",
     "Data Science",
+    "Digital Marketing",
     "Tableau",
     "Power BI",
     "MERN - Full Stack",
@@ -457,6 +458,7 @@ export function InternForm() {
     "Java - Full Stack",
     "React JS",
 
+    "Finance",
     "Front-End Development",
 
     "Java",

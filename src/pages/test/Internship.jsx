@@ -150,6 +150,7 @@ const IDOM = [
   "Full Stack Development",
   "Machine Learning & AI",
   "Finance",
+  "Digital Marketing",
   "Other",
 ];
 
@@ -186,7 +187,10 @@ const IFAQ = [
     "Do I need prior coding experience?",
     "You need a basic understanding of software development concepts and methodologies, along with strong problem-solving skills and a willingness to learn.",
   ],
-  ["How long is the internship?", "The internship runs for 2 to 8 weeks."],
+  [
+    "How long is the internship?",
+    "The internship duration starts from a minimum of 2 weeks and can be extended based on the selected program and requirements.",
+  ],
   [
     "When can I start?",
     "Start dates are flexible, and you can choose weekdays or weekends. Our team will confirm the available batches when you apply.",
@@ -545,7 +549,7 @@ function InternshipPage() {
                 <span>Duration</span>
 
                 <div>
-                  <b>2 – 8</b> weeks
+                  <b>2 </b> weeks onwards
                 </div>
 
                 <div className="wk">
@@ -554,7 +558,7 @@ function InternshipPage() {
                   ))}
                 </div>
 
-                <small>Minimum 2 weeks, up to 8 weeks</small>
+                {/* <small>Minimum 2 weeks, up to 8 weeks</small> */}
               </div>
 
               <div className="gxg">
@@ -681,8 +685,11 @@ function InternshipPage() {
                         fontSize: 14,
                       }}
                     >
-                      <b>2 to 8 weeks</b>, with flexible batches on weekdays or
-                      weekends.
+                      <b>
+                        The internship duration starts from a minimum of 2 weeks
+                        duration
+                      </b>
+                      , with flexible batches on weekdays or weekends.
                     </p>
                   </div>
                 </div>
@@ -820,7 +827,7 @@ function InternshipPage() {
                   />
                   <span>Individual Internship</span>
                 </label>
-{/* 
+                {/* 
                 <label
                   className={
                     internshipType === "group"
