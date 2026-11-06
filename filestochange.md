@@ -1,5 +1,5 @@
-src/components/internship/GroupInternForm.jsx
-src/components/internship/GroupInternship.css
-src/data/internshipOptions.js
+src/components/internship/GroupInternForm.jsx - DONE
+src/components/internship/GroupInternship.css - DONE
+src/data/internshipOptions.js - DONE
 
 src/pages/test/Internship.jsx
