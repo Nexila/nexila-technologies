@@ -361,7 +361,7 @@ export default function GroupInternForm() {
                   </button>
                 )}
                 <span>MEMBER {index + 1}</span>
-                <span>{index + 1}/6</span>
+                <span>{index + 1}/15</span>
               </div>
 
               <div className="group-grid">
