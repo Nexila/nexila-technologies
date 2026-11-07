@@ -150,6 +150,7 @@ const IDOM = [
   "DevOps",
   "Full Stack Development",
   "Machine Learning & AI",
+  "Digital Marketing",
   "Finance",
   "Other",
 ];
@@ -187,7 +188,7 @@ const IFAQ = [
     "Do I need prior coding experience?",
     "You need a basic understanding of software development concepts and methodologies, along with strong problem-solving skills and a willingness to learn.",
   ],
-  ["How long is the internship?", "The internship runs for 2 to 8 weeks."],
+  ["How long is the internship?", "The internship runs for minimum 2 weeks."],
   [
     "When can I start?",
     "Start dates are flexible, and you can choose weekdays or weekends. Our team will confirm the available batches when you apply.",
@@ -546,7 +547,7 @@ function InternshipPage() {
                 <span>Duration</span>
 
                 <div>
-                  <b>2 – 8</b> weeks
+                  <b>Two</b> weeks
                 </div>
 
                 <div className="wk">
