@@ -5,6 +5,7 @@ import { InternForm } from "./InternshipPage";
 import its1 from "../../assets/images/internship/its1.jpg";
 import its2 from "../../assets/images/internship/its2.jpg";
 import its5 from "../../assets/images/internship/its5.jpg";
+import GroupInternForm from "../../components/internship/GroupInternForm";
 
 /* ================= INTERNSHIP DATA ================= */
 
@@ -150,7 +151,6 @@ const IDOM = [
   "Full Stack Development",
   "Machine Learning & AI",
   "Finance",
-  "Digital Marketing",
   "Other",
 ];
 
@@ -187,10 +187,7 @@ const IFAQ = [
     "Do I need prior coding experience?",
     "You need a basic understanding of software development concepts and methodologies, along with strong problem-solving skills and a willingness to learn.",
   ],
-  [
-    "How long is the internship?",
-    "The internship duration starts from a minimum of 2 weeks and can be extended based on the selected program and requirements.",
-  ],
+  ["How long is the internship?", "The internship runs for 2 to 8 weeks."],
   [
     "When can I start?",
     "Start dates are flexible, and you can choose weekdays or weekends. Our team will confirm the available batches when you apply.",
@@ -549,7 +546,7 @@ function InternshipPage() {
                 <span>Duration</span>
 
                 <div>
-                  <b>Two</b> weeks onwards
+                  <b>2 – 8</b> weeks
                 </div>
 
                 <div className="wk">
@@ -558,7 +555,7 @@ function InternshipPage() {
                   ))}
                 </div>
 
-                {/* <small>Minimum 2 weeks, up to 8 weeks</small> */}
+                <small>Minimum 2 weeks, up to 8 weeks</small>
               </div>
 
               <div className="gxg">
@@ -685,11 +682,8 @@ function InternshipPage() {
                         fontSize: 14,
                       }}
                     >
-                      <b>
-                        The internship duration starts from a minimum of 2 weeks
-                        duration
-                      </b>
-                      , with flexible batches on weekdays or weekends.
+                      <b>2 to 8 weeks</b>, with flexible batches on weekdays or
+                      weekends.
                     </p>
                   </div>
                 </div>
@@ -804,7 +798,7 @@ function InternshipPage() {
               <p>
                 {internshipType === "individual"
                   ? "Apply individually for your software internship. Our team will contact you with the next steps."
-                  : "Apply with your team for a group internship. Each group can have a maximum of 6 members. Our team will contact you with the next steps."}{" "}
+                  : "Groups can range from a minimum of 6 to a maximum of 15 members. By applying as a group, every member will receive a ₹200 discount compared to the individual internship registration fee. Once you submit, our team will contact you with the next steps."}{" "}
                 You can also call us on{" "}
                 <a href="tel:+919803061234">+91 980 306 1234</a>.
               </p>
@@ -827,7 +821,7 @@ function InternshipPage() {
                   />
                   <span>Individual Internship</span>
                 </label>
-                {/* 
+
                 <label
                   className={
                     internshipType === "group"
@@ -843,8 +837,10 @@ function InternshipPage() {
                     onChange={() => setInternshipType("group")}
                   />
                   <span>Group Internship</span>
-                  <small>Offers only applicable for 6 members group</small>
-                </label> */}
+                  <small>
+                    Offers only applicable for minimum 6 to 15 members group
+                  </small>
+                </label>
               </div>
 
               {/* Internship Details: Two Columns */}
@@ -856,10 +852,10 @@ function InternshipPage() {
                     <div className="internship-info-column">
                       <h3>Group Internship</h3>
                       <ul className="ck2">
-                        <li>Maximum 6 members per group</li>
+                        <li>Minimum 6 to 15 members per group</li>
                         <li>Collaborative learning with your team</li>
-                        <li>Live project with mentor support</li>
-                        <li>Certificate and recommendation letter</li>
+                        <li>Live classes with mentor support</li>
+                        <li>Attendance report, Offer Letter and Certificate</li>
                       </ul>
                     </div>
 
@@ -869,7 +865,7 @@ function InternshipPage() {
                       <p>Contact our team for group internship options.</p>
 
                       <h3>Batch Starts</h3>
-                      <p>Wednesday</p>
+                      <p>Every Wednesday</p>
 
                       <h3>Contact</h3>
                       <p>
@@ -886,7 +882,7 @@ function InternshipPage() {
               {internshipType === "individual" ? (
                 <InternForm />
               ) : (
-                <InternForm internshipType="group" />
+                <GroupInternForm internshipType="group" />
               )}
             </div>
           </div>
